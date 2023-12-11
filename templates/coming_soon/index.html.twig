@@ -7,7 +7,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Site | RPVO</title>
-    <link rel="icon" href="{{asset('comingSoon/img/Logo_RPVO.jpeg')}}" />
+    <link rel="icon" href="{{asset('comingSoon/img/logoRPVO.jpeg')}}" />
     <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Google fonts-->
@@ -27,13 +27,12 @@
         <div class="masthead-content text-white">
             <div class="container-fluid px-4 px-lg-0">
                 <h1 class="fst-italic lh-1 mb-4">RPVO</h1>
-                <h2 class="fst-italic lh-1 mb-4">Bienvenue sur le site du réseau périnatal du val d'oise (R.P.V.O.)</h2>
+                <h2 class="fst-italic lh-1 mb-4">Bienvenue sur le site du Réseau Périnatal du Val d'Oise (R.P.V.O.)</h2>
                 <p class="mb-3">
-                    Nous sommes actuellement en plein travail pour finaliser le développement du site du
-                    Réseau.
+                    Le site est actuellement en maintenance.
                 </p>
                 <p class="text-small">
-                    N'hésitez pas à nous contacter via le formulaire ci-dessous pour obtenir des infos précises.
+                    Vous pouvez nous contacter via le formulaire pour obtenir des informations.
                 </p>
 
                 {% for label, messages in app.flashes %}
@@ -54,6 +53,9 @@
                     </div>
                     <div class="col-12 mb-1">
                         {{form_widget(contactForm.subject)}}
+                    </div>
+                    <div class="col-12 mb-1">
+                        {{form_widget(contactForm.message)}}
                     </div>
 
                     <div class="col-auto">

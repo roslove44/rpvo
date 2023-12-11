@@ -21,7 +21,7 @@ class ComingSoonController extends AbstractController
 
             $mailer->send(
                 "contact@rpvo.org",
-                $data['clientEmail'],
+                "contact@rpvo.org",
                 $data['subject'],
                 'comingSoon',
                 $data,
