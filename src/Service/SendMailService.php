@@ -21,14 +21,14 @@ class SendMailService
             $email = (new TemplatedEmail())
                 ->from($from)->to($to)
                 ->subject($subject)
-                ->htmlTemplate("email/$template.html.twig")
+                ->htmlTemplate("Email/$template.html.twig")
                 ->replyTo($replyTo)
                 ->context($context);
         } else {
             $email = (new TemplatedEmail())
                 ->from($from)->to($to)
                 ->subject($subject)
-                ->htmlTemplate("email/$template.html.twig")
+                ->htmlTemplate("Email/$template.html.twig")
                 ->context($context);
         }
 
