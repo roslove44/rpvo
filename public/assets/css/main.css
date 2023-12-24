@@ -984,7 +984,7 @@ section {
 }
 
 .services .service-item:hover .icon:before {
-  background: #00b6a1;
+  background: var(--color-primary);
 }
 
 .services .service-item:hover h3 {
@@ -2654,4 +2654,9 @@ section {
 
 .footer .credits a {
   color: #fff;
+}
+
+/* Others */
+.text-bold {
+  font-weight: bold !important;
 }
