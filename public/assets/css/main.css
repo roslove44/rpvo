@@ -801,7 +801,8 @@ section {
 # Call To Action Section
 --------------------------------------------------------------*/
 .call-to-action .container {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/cta-bg.jpg") center center;
+  background-color: #c8a0a1;
+    background-image: linear-gradient(167deg, #c8a0a1 0%, #e8aeae 50%);
   background-size: cover;
   padding: 100px 60px;
   border-radius: 15px;
@@ -2659,4 +2660,12 @@ section {
 /* Others */
 .text-bold {
   font-weight: bold !important;
+}
+
+.show-agenda-home .container {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/agenda-home.webp) center center;
+  background-size: cover;
+  padding: 100px 60px;
+  border-radius: 15px;
+  overflow: hidden;
 }
