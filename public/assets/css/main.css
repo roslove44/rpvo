@@ -1361,6 +1361,7 @@ section {
   padding: 15px;
   overflow: hidden;
   box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
 }
 
 .team .member img {
@@ -2668,4 +2669,12 @@ section {
   padding: 100px 60px;
   border-radius: 15px;
   overflow: hidden;
+}
+
+.member i.bi-person:nth-child(1) {
+  font-size: 48px;
+}
+
+.pl-3 {
+  padding-left: 10px;
 }
