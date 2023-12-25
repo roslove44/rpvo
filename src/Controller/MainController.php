@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\ContactComingType;
+use App\Form\ContactType;
 use App\Service\SendMailService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,8 +24,26 @@ class MainController extends AbstractController
     }
 
     #[Route('/contact', name: 'app_main_contact')]
-    public function contact(): Response
+    public function contact(Request $request, SendMailService $mailer): Response
     {
-        return $this->render('accueil/contact.html.twig');
+        $contactForm = $this->createForm(ContactType::class);
+        $contactForm->handleRequest($request);
+
+        if ($contactForm->isSubmitted() && $contactForm->isValid()) {
+            $data = $contactForm->getData();
+            $mailer->send(
+                'contact@rpvo.org',
+                'contact@rpvo.org',
+                $data['subject'],
+                'contact',
+                $data,
+                $data['fieldEmail']
+            );
+            $this->addFlash('contactSuccess', "Votre message a bien été reçu. Merci !");
+            return $this->redirectToRoute('app_main_contact');
+        }
+
+        $contactForm = $contactForm->createView();
+        return $this->render('accueil/contact.html.twig', compact('contactForm'));
     }
 }

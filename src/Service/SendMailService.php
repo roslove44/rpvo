@@ -4,6 +4,7 @@ namespace App\Service;
 
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Address;
 
 class SendMailService
 {
@@ -16,10 +17,12 @@ class SendMailService
 
     public function send(string $from, string $to, string $subject, string $template, array $context, string $replyTo = null): void
     {
+        $from = new Address($from, 'Contact RPVO');
         // On crée le mail 
         if ($replyTo) {
             $email = (new TemplatedEmail())
-                ->from($from)->to($to)
+                ->from($from)
+                ->to($to)
                 ->subject($subject)
                 ->htmlTemplate("Email/$template.html.twig")
                 ->replyTo($replyTo)
