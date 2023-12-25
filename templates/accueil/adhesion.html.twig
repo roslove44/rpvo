@@ -101,7 +101,17 @@
 {% endblock %}
 {% block javascripts %}
 <script>
-    let profession = document.querySelector('#member_ship_form_office');
-    console.log("profession")
+    let office = document.querySelector('#member_ship_form_office');
+    let otherOffice = document.querySelector('#member_ship_form_otherOffice');
+    let officeValue = office.value
+    office.addEventListener('change', (e) => {
+        officeValue = office.value
+        if (officeValue === 'Autre') {
+            otherOffice.parentElement.classList.toggle('d-none');
+        } else {
+            otherOffice.parentElement.classList.add('d-none');
+        }
+        console.log(otherOffice.parentElement);
+    })
 </script>
 {% endblock %}
