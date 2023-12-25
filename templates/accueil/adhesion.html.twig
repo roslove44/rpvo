@@ -1,0 +1,107 @@
+{% extends "base.html.twig" %}
+{% block title %}Adhésion - Réseau Périnatal du Val d'Oise (R.P.V.O.){% endblock %}
+
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+        <div class="page-header d-flex align-items-center" style="background-image: url('');">
+            <div class="container position-relative">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h2>RPVO</h2>
+                        <p>Bienvenue sur la page d'adhésion du Réseau Périnatal du Val d'Oise (R.P.V.O.)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <ol>
+                    <li><a href="{{path('app_main')}}">Accueil</a></li>
+                    <li>Adhésion</li>
+                </ol>
+            </div>
+        </nav>
+    </div><!-- End Breadcrumbs -->
+
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h2>BULLETIN D'ADHESION</h2>
+                <p>
+                </p>
+            </div>
+
+            <div class="row gx-lg-0">
+                <div class="col-lg-1 col-1"
+                    style="background-color: var(--color-primary); border-radius: 17px 0px 0px 17px;">
+                </div>
+
+                <div class="col-lg-11 col-11">
+                    {{form_start(memberForm)}}
+                    <div class="php-email-form">
+                        <div class="row align-items-center justify-content-around">
+                            <div class="col-lg-3 col-6 form-group">
+                                Je soussigné (e)
+                            </div>
+                            <div class="col-lg-9 col-6 form-group">
+                                {{form_widget(memberForm.civility)}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                {{form_widget(memberForm.surname)}}
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                {{form_widget(memberForm.firstname)}}
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            {{form_widget(memberForm.profession)}}
+                        </div>
+                        <div class="form-group mt-3">
+                            {{form_widget(memberForm.office)}}
+                        </div>
+                        <div class="form-group mt-3 d-none">
+                            {{form_widget(memberForm.otherOffice)}}
+                        </div>
+                        <div class="form-group mt-3">
+                            {{form_widget(memberForm.fieldEmail)}}
+                        </div>
+                        <div class="my-3">
+                            {% if form_errors(memberForm) %}
+                            <div class="error-message d-block">
+                                {{form_errors(memberForm)}}
+                            </div>
+                            {% endif %}
+
+                            {% for label, messages in app.flashes %}
+                            {% if label == 'contactSuccess' %}
+                            {% for message in messages %}
+                            <div class="sent-message d-block">{{ message }}</div>
+                            {% endfor %}
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="text-center"><button type="submit">Envoyez</button></div>
+                    </div>
+                    {{form_end(memberForm)}}
+                </div><!-- End Contact Form -->
+
+            </div>
+        </div>
+    </section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+{% endblock %}
+{% block javascripts %}
+<script>
+    let profession = document.querySelector('#member_ship_form_office');
+    console.log("profession")
+</script>
+{% endblock %}

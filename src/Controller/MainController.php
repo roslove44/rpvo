@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\ContactComingType;
 use App\Form\ContactType;
+use App\Form\MemberShipFormType;
 use App\Service\SendMailService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -45,5 +46,29 @@ class MainController extends AbstractController
 
         $contactForm = $contactForm->createView();
         return $this->render('accueil/contact.html.twig', compact('contactForm'));
+    }
+
+    #[Route('/adhesion', name: 'app_main_membership')]
+    public function membership(Request $request, SendMailService $mailer): Response
+    {
+        $memberForm = $this->createForm(MemberShipFormType::class);
+        $memberForm->handleRequest($request);
+
+        if ($memberForm->isSubmitted() && $memberForm->isValid()) {
+            $data = $memberForm->getData();
+            $mailer->send(
+                'contact@rpvo.org',
+                'contact@rpvo.org',
+                $data['subject'],
+                'contact',
+                $data,
+                $data['fieldEmail']
+            );
+            $this->addFlash('contactSuccess', "Votre message a bien été reçu. Merci !");
+            return $this->redirectToRoute('app_main_membership');
+        }
+
+        $memberForm = $memberForm->createView();
+        return $this->render('accueil/adhesion.html.twig', compact('memberForm'));
     }
 }

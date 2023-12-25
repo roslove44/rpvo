@@ -1823,8 +1823,10 @@ section {
 
 .contact .php-email-form input[type=text]:focus,
 .contact .php-email-form input[type=email]:focus,
+.contact .php-email-form .form-select:focus,
 .contact .php-email-form textarea:focus {
   border-color: var(--color-primary);
+  box-shadow: none;
 }
 
 .contact .php-email-form textarea {
