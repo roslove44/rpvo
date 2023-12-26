@@ -34,18 +34,37 @@
             <div class="section-header">
                 <h2>BULLETIN D'ADHESION</h2>
                 <p>
+                    Les données recueillies ici ont pour objet de tenir à jour notre fichier d'adhérents. Ces données
+                    seront utilisées pour vous faire apparaitre dans notre annuaire et vous envoyer nos newsletters
+                    ainsi que des informations sur les évènements que nous organisons. En aucun cas ces données ne
+                    seront cédées ou vendues à des tiers.
                 </p>
             </div>
 
             <div class="row gx-lg-0">
                 <div class="col-lg-1 col-1"
-                    style="background-color: var(--color-primary); border-radius: 17px 0px 0px 17px;">
+                    style="background-color: var(--color-primary); border-radius: 10px 0px 0px 10px;">
                 </div>
 
                 <div class="col-lg-11 col-11">
                     {{form_start(memberForm)}}
                     <div class="php-email-form">
                         <div class="row align-items-center justify-content-around">
+                            <div class="my-3">
+                                {% if form_errors(memberForm) %}
+                                <div class="error-message d-block">
+                                    {{form_errors(memberForm)}}
+                                </div>
+                                {% endif %}
+
+                                {% for label, messages in app.flashes %}
+                                {% if label == 'memberShipSuccess' %}
+                                {% for message in messages %}
+                                <div class="sent-message d-block">{{ message }}</div>
+                                {% endfor %}
+                                {% endif %}
+                                {% endfor %}
+                            </div>
                             <div class="col-lg-3 col-6 form-group">
                                 Je soussigné (e)
                             </div>
@@ -62,7 +81,7 @@
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            {{form_widget(memberForm.profession)}}
+                            {{form_widget(memberForm.activity)}}
                         </div>
                         <div class="form-group mt-3">
                             {{form_widget(memberForm.office)}}
@@ -71,24 +90,30 @@
                             {{form_widget(memberForm.otherOffice)}}
                         </div>
                         <div class="form-group mt-3">
+                            {{form_widget(memberForm.address)}}
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                {{form_widget(memberForm.zipCode)}}
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                {{form_widget(memberForm.town)}}
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            {{form_widget(memberForm.proPhoneNumber)}}
+                        </div>
+                        <div class="form-group mt-3">
+                            {{form_widget(memberForm.phoneNumber)}}
+                        </div>
+                        <div class="form-group mt-3">
                             {{form_widget(memberForm.fieldEmail)}}
                         </div>
-                        <div class="my-3">
-                            {% if form_errors(memberForm) %}
-                            <div class="error-message d-block">
-                                {{form_errors(memberForm)}}
-                            </div>
-                            {% endif %}
-
-                            {% for label, messages in app.flashes %}
-                            {% if label == 'contactSuccess' %}
-                            {% for message in messages %}
-                            <div class="sent-message d-block">{{ message }}</div>
-                            {% endfor %}
-                            {% endif %}
-                            {% endfor %}
+                        <div class="form-group mt-3">
+                            {{form_label(memberForm.auth)}}
+                            {{form_widget(memberForm.auth)}}
                         </div>
-                        <div class="text-center"><button type="submit">Envoyez</button></div>
+                        <div class="text-center"><button type="submit">Soumettre</button></div>
                     </div>
                     {{form_end(memberForm)}}
                 </div><!-- End Contact Form -->

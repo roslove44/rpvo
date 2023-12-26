@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>RPVO</title>
+    <title>RPVO Demande d'adhésion</title>
     <style media="all" type="text/css">
         /* -------------------------------------
     GLOBAL RESETS
@@ -329,30 +329,50 @@
                         <tr>
                             <td class="wrapper">
                                 <p>Bonjour l'Equipe</p>
-                                <p>Vous avez reçu un nouveau message via le formulaire de contact de votre site. Voici
-                                    les détails :
+                                <p>
+                                    Une nouvelle <strong>demande d'adhésion</strong> a été soumise via le formulaire sur
+                                    le site. Voici les détails :
                                 </p>
                                 <ul style="list-style-type: none;">
                                     <li>
-                                        <strong>Nom : </strong> {{name}}
+                                        <strong>Nom : </strong> {{civility}} {{surname}} {{firstname}}
+                                    </li>
+                                    <li>
+                                        <strong>Profession : </strong> {{activity}}
+                                    </li>
+                                    <li>
+                                        <strong>Lieu d'exercice : </strong> {{office}} | {{otherOffice}}
+                                    </li>
+                                    <li>
+                                        <strong>Adresse professionnelle : </strong> {{address}}
+                                    </li>
+                                    <li>
+                                        <strong>Code Postal : </strong> {{zipCode}}
+                                    </li>
+                                    <li>
+                                        <strong>Ville : </strong> {{town}}
+                                    </li>
+                                    <li>
+                                        <strong>Téléphone professionnel: </strong> {{proPhoneNumber}}
+                                    </li>
+                                    <li>
+                                        <strong>Téléphone portable: </strong> {{phoneNumber}}
                                     </li>
                                     <li>
                                         <strong>E-mail : </strong> {{fieldEmail}}
                                     </li>
-                                    <li>
-                                        <strong>Objet : </strong> {{subject}}
-                                    </li>
                                 </ul>
                                 <p>
-                                    <strong>Message</strong>
+                                    <strong>Autorisation</strong>
                                     <hr>
-                                    {{message}}
+                                    {{civility}} {{surname}} {{firstname}} autorise le réseau à communiquer ses
+                                    coordonnées aux autres membres de l'association.
                                     <hr>
                                 </p>
                                 <p>
-                                    Veuillez répondre à ce message dès que possible.
+                                    Veuillez prendre les mesures nécessaires pour traiter cette demande.
                                     <br>
-                                    Cordialement!
+                                    Cordialement !
                                 </p>
                                 <table role="presentation" border="0" cellpadding="0" cellspacing="0"
                                     class="btn btn-primary">

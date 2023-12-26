@@ -56,15 +56,19 @@ class MainController extends AbstractController
 
         if ($memberForm->isSubmitted() && $memberForm->isValid()) {
             $data = $memberForm->getData();
+            if (!isset($data['otherOffice']) || empty($data['otherOffice'])) {
+                $data['otherOffice'] = "";
+            }
+
             $mailer->send(
                 'contact@rpvo.org',
                 'contact@rpvo.org',
-                $data['subject'],
-                'contact',
+                "Demande d'adhésion au réseau RPVO",
+                'memberShip',
                 $data,
                 $data['fieldEmail']
             );
-            $this->addFlash('contactSuccess', "Votre message a bien été reçu. Merci !");
+            $this->addFlash('memberShipSuccess', "Votre demande d'adhésion a bien été reçu. L'Equipe du RPVO vous remercie !");
             return $this->redirectToRoute('app_main_membership');
         }
 

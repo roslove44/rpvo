@@ -3,8 +3,10 @@
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -37,7 +39,7 @@ class MemberShipFormType extends AbstractType
                     'placeholder' => 'Prénom'
                 ]
             ])
-            ->add('profession', TextType::class, [
+            ->add('activity', TextType::class, [
                 'attr' => [
                     'class' => 'form-control',
                     'placeholder' => 'Profession'
@@ -58,16 +60,51 @@ class MemberShipFormType extends AbstractType
             ])
             ->add('otherOffice', TextType::class, [
                 'required' => false,
-                'mapped' => false,
                 'attr' => [
                     'class' => 'form-control',
                     'placeholder' => 'Précisez votre lieu de travail'
                 ]
             ])
+            ->add('address', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => 'Adresse professionnelle'
+                ]
+            ])
+            ->add('zipCode', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => 'Code Postal'
+                ]
+            ])
+            ->add('town', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => 'Ville'
+                ]
+            ])
+            ->add('proPhoneNumber', TelType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => 'Numéro de téléphone professionnel'
+                ]
+            ])
+            ->add('phoneNumber', TelType::class, [
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => 'Numéro de téléphone portable'
+                ]
+            ])
             ->add('fieldEmail', EmailType::class, [
                 'attr' => [
                     'class' => 'form-control',
-                    'placeholder' => 'Votre Email'
+                    'placeholder' => 'Votre adresse électronique'
+                ]
+            ])
+            ->add('auth', CheckboxType::class, [
+                'label' => "J'autorise le réseau à communiquer mes coordonnées aux autres membres de l'association",
+                'attr' => [
+                    'class' => '',
                 ]
             ]);
     }
@@ -75,7 +112,7 @@ class MemberShipFormType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            // Configure your form options here
+            'required' => true
         ]);
     }
 }
