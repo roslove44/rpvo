@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\CalculatorForPrematureFormType;
+use App\Service\CalculatorForPrematureService;
 use DateInterval;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,7 +20,7 @@ class ToolController extends AbstractController
     }
 
     #[Route('/outils/calculateur-age-reel-age-corrige-pour-prematures', name: 'app_tool_calculatorForPremature')]
-    public function calculatorForPremature(Request $request): Response
+    public function calculatorForPremature(Request $request, CalculatorForPrematureService $calcFPS): Response
     {
         $calculatorForPrematureForm = $this->createForm(CalculatorForPrematureFormType::class);
         $calculatorForPrematureForm->handleRequest($request);
@@ -29,19 +30,9 @@ class ToolController extends AbstractController
             $calculatorForPrematureForm->isSubmitted() && $calculatorForPrematureForm->isValid()
         ) {
             extract($calculatorForPrematureForm->getData());
-            $currentDate = new DateTime();
-
-            // Calcul de l'âge réel
-            $realAge = $birthday->diff($currentDate);
-
-            // Calcul de l'âge corrigé
-            $prematurityWeeks = (40 - $termSA);
-            $prematurityWeeks = new DateInterval("P{$prematurityWeeks}W");
-            $birthdayClone = clone $birthday;
-            $fixedDate = $birthdayClone->sub($prematurityWeeks);
-            $fixedAge = $fixedDate->diff($currentDate);
-
-            dd($birthday, $realAge->format('%y an(s), %m mois, %d jour(s)'), $fixedAge);
+            $fixedAge = $calcFPS->calcFixedAge($birthday, $termSA);
+            $realAge = $calcFPS->calcRealAge($birthday);
+            dd($fixedAge, $realAge);
         }
 
         $calculatorForPrematureForm = $calculatorForPrematureForm->createView();
