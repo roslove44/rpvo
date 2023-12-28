@@ -1,0 +1,98 @@
+{% extends "base.html.twig" %}
+{% block title %}RPVO | Contact{% endblock %}
+
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+        <div class="page-header d-flex align-items-center" style="background-image: url('');">
+            <div class="container position-relative">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h2>RPVO</h2>
+                        <p>Consultez la liste des outils mise à votre disposition</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <ol>
+                    <li><a href="{{path('app_main')}}">Accueil</a></li>
+                    <li>Outils pratiques</li>
+                </ol>
+            </div>
+        </nav>
+    </div><!-- End Breadcrumbs -->
+
+
+    <!-- ======= Our Services Section ======= -->
+    <section id="services" class="services sections-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>Outils Interactifs pour une Périnatalité Connectée</h2>
+                <p>
+                    Explorez nos ressources interactives conçues pour simplifier le parcours périnatal. Le Réseau
+                    Périnatal du Val d'Oise
+                    facilite l'accès à des outils pratiques, du calendrier de grossesse aux calculateurs spécialisés,
+                    pour une expérience
+                    enrichissante.
+                </p>
+            </div>
+
+            <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item  position-relative">
+                        <div class="icon">
+                            <i class="bi bi-activity"></i>
+                        </div>
+                        <h3>Calendrier de Grossesse Interactif</h3>
+                        <p></p>
+                        <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="bi bi-broadcast"></i>
+                        </div>
+                        <h3>Calculateur d'Âge réel ou corrigé pour les Prématurés</h3>
+                        <p></p>
+                        <a href="{{path('app_tool_calculatorForPremature')}}" class="readmore stretched-link">Read more
+                            <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="bi bi-easel"></i>
+                        </div>
+                        <h3>Roulette <br> Obstétricale</h3>
+                        <p></p>
+                        <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div><!-- End Service Item -->
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item position-relative">
+                        <div class="icon">
+                            <i class="bi bi-bounding-box-circles"></i>
+                        </div>
+                        <h3>Échelle Scorée</h3>
+                        <p></p>
+                        <a href="#" class="readmore stretched-link">Read more <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div><!-- End Service Item -->
+            </div>
+
+        </div>
+    </section><!-- End Our Services Section -->
+
+</main><!-- End #main -->
+{% endblock %}
