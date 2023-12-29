@@ -25,17 +25,22 @@ class ToolController extends AbstractController
         $calculatorForPrematureForm = $this->createForm(CalculatorForPrematureFormType::class);
         $calculatorForPrematureForm->handleRequest($request);
         $fixedAge = null;
+        $realAge = null;
+        $result = false;
+        $data = null;
 
         if (
             $calculatorForPrematureForm->isSubmitted() && $calculatorForPrematureForm->isValid()
         ) {
-            extract($calculatorForPrematureForm->getData());
-            $fixedAge = $calcFPS->calcFixedAge($birthday, $termSA);
+            $data = $calculatorForPrematureForm->getData();
+            extract($data);
+            $termSADays = $termSADays ? $termSADays : 0;
+            $fixedAge = $calcFPS->calcFixedAge($birthday, $termSA, $termSADays);
             $realAge = $calcFPS->calcRealAge($birthday);
-            dd($fixedAge, $realAge);
+            $result = true;
         }
 
         $calculatorForPrematureForm = $calculatorForPrematureForm->createView();
-        return $this->render('tool/calculatorForPremature.html.twig', compact('calculatorForPrematureForm', 'fixedAge'));
+        return $this->render('tool/calculatorForPremature.html.twig', compact('calculatorForPrematureForm', 'fixedAge', 'realAge', 'result', 'data'));
     }
 }

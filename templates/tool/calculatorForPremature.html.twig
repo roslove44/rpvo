@@ -43,7 +43,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-8 d-none">
+                <div class="col-lg-8 {% if result %}d-none{% endif %}">
                     {{form_start(calculatorForPrematureForm)}}
                     <div class="php-email-form pt-2 pb-2">
                         <div class="form-group mt-3">
@@ -61,46 +61,61 @@
                                 {{form_errors(calculatorForPrematureForm.birthday)}}
                             </div>
                         </div>
-                        <div class="form-group mt-3">
-                            <div class="form-label">
-                                {{form_label(calculatorForPrematureForm.termSA)}}
+                        <div class="form-label">
+                            <label for="inputPassword6" class="col-form-label">Terme</label>
+                        </div>
+                        <div class="row g-3 align-items-center">
+                            <div class="col-lg-5 col-4">
+                                {{form_widget(calculatorForPrematureForm.termSA)}}
                             </div>
-                            {{form_widget(calculatorForPrematureForm.termSA)}}
+                            <div class="col-lg-1 col-2">
+                                <span id="passwordHelpInline" class="form-text">
+                                    SA
+                                </span>
+                            </div>
+                            <div class="col-lg-5 col-4">
+                                {{form_widget(calculatorForPrematureForm.termSADays)}}
+                            </div>
+                            <div class="col-lg-1 col-2">
+                                <span id="passwordHelpInline" class="form-text">
+                                    jours
+                                </span>
+                            </div>
                             <div class="form-text text-danger font-weight-bold">
                                 {{form_errors(calculatorForPrematureForm.termSA)}}
+                                {{form_errors(calculatorForPrematureForm.termSADays)}}
                             </div>
                         </div>
+
                         <div class="my-3">
                             {% if form_errors(calculatorForPrematureForm) %}
                             <div class="error-message d-block">
                                 {{form_errors(calculatorForPrematureForm)}}
                             </div>
                             {% endif %}
-
-                            {% for label, messages in app.flashes %}
-                            {% if label == 'contactSuccess' %}
-                            {% for message in messages %}
-                            <div class="sent-message d-block">{{ message }}</div>
-                            {% endfor %}
-                            {% endif %}
-                            {% endfor %}
                         </div>
                         <div class="text-center"><button type="submit">Calculez</button></div>
                     </div>
                     {{form_end(calculatorForPrematureForm)}}
                 </div>
-                <div class="col-lg-8">
+                {% if result %}
+                <div class="col-lg-8 {% if not result %}d-none{% endif %}aos-init aos-animate" data-aos="fade-up">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Deux Âges, Une Famille</h5>
                             <div class="card-text" style="font-size: 15px;color: #6c757d;">
                                 <p>
-                                    Découvrez ci dessous l'âge réel et corrigé de votre bébé, selon les informations
-                                    suivantes
+                                    Consultez ci-dessous l'âge réel et ajusté du bébé en fonction des données
+                                    fournies.
                                 </p>
                                 <ul>
-                                    <li>Date de naissance : </li>
-                                    <li>Terme SA : </li>
+                                    <li>Date de naissance : {{data.birthday | date('j F Y', "Europe/Paris")}}</li>
+                                    <li>Terme SA : {{data.termSA}} semaine{% if data.termSA > 1 %}s{% endif %}
+                                    </li>
+                                    <li>Terme jours : {% if data.termSADays %}{{data.termSADays}} jour{% if
+                                        data.termSADays > 1 %}s{% endif %} {% else %}
+                                        -{% endif %}
+                                    </li>
                                 </ul>
                                 <table class="table">
                                     <thead>
@@ -117,19 +132,27 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td class="text-center" style="background-color: #f2f2f2;">1 mois 14 jour(s)
+                                            <td class="text-center" style="background-color: #f2f2f2;">
+                                                {{realAge}}
                                             </td>
-                                            <td class="text-center" style="background-color: #f2f2f2;">0 mois -12
-                                                jour(s)</td>
+                                            <td class="text-center" style="background-color: #f2f2f2;">
+                                                {{fixedAge}}
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="" class="btn" style="background-color:#f2f2f2;">
+                                <i class="bi bi-arrow-left"></i>
+                                Réinitialiser
+                            </a>
                         </div>
                     </div>
                 </div>
+                {% endif %}
             </div>
+
+
 
         </div>
     </section>
