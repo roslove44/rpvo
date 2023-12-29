@@ -103,7 +103,7 @@ termDate.addEventListener("change", function (event) {
 
 function showResult(termDate, pregnancyStartDate, lastMenstrualDate) {
   pregnancyAge.querySelector("ul > li:nth-child(4)").textContent =
-    "Date de terme (41 SA) : " +
+    "Date prévue pour l'accouchement ( terme 41 SA) : " +
     new Date(termDate).toLocaleDateString("fr-FR", options);
   pregnancyAge.querySelector("ul > li:nth-child(3)").textContent =
     "Date de début de grossesse : " +
