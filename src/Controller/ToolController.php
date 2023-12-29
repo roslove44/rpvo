@@ -43,4 +43,10 @@ class ToolController extends AbstractController
         $calculatorForPrematureForm = $calculatorForPrematureForm->createView();
         return $this->render('tool/calculatorForPremature.html.twig', compact('calculatorForPrematureForm', 'fixedAge', 'realAge', 'result', 'data'));
     }
+
+    #[Route('/outils/roulette-obstetricale', name: 'app_tool_obstetricalCastor')]
+    public function obstetricalCastor(Request $request): Response
+    {
+        return $this->render('tool/obstetricalCastor.html.twig');
+    }
 }

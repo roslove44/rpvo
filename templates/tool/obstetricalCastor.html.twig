@@ -22,7 +22,7 @@
                 <ol>
                     <li><a href="{{path('app_main')}}">Accueil</a></li>
                     <li><a href="{{path('app_tool')}}">Outils pratiques</a></li>
-                    <li>Calculateur d'Âge réel ou corrigé pour les Prématurés</li>
+                    <li>Roulette obstétricale</li>
                 </ol>
             </div>
         </nav>
@@ -36,70 +36,70 @@
 
                 <div class="col-lg-4">
                     <div class="content px-xl-5">
-                        <h3>Le <strong>Calculateur</strong></h3>
+                        <h3><strong>Roulette obstétricale</strong></h3>
                         <p>
-                            Terme SA : Durée de Gestation en Semaines
+                            Cet outil est un calculateur de dates utiles pour le suivi obstétrical.
                         </p>
                     </div>
                 </div>
 
-                <div class="col-lg-8 {% if result %}d-none{% endif %}">
-                    {{form_start(calculatorForPrematureForm)}}
-                    <div class="php-email-form pt-2 pb-2">
-                        <div class="form-group mt-3">
-                            <div class="form-label">
-                                {{form_label(calculatorForPrematureForm.currentDate)}}
+                <div class="col-lg-8">
+                    <form name="calculator_for_premature_form" method="post">
+                        <div class="php-email-form pt-2 pb-2">
+                            <div class="form-text" id="basic-addon4">
+                                <ul style="list-style-type: none;">
+                                    <li>
+                                        <i>*Renseignez la date que vous connaissez</i>
+                                    </li>
+                                </ul>
                             </div>
-                            {{form_widget(calculatorForPrematureForm.currentDate)}}
-                        </div>
-                        <div class="form-group mt-3">
-                            <div class="form-label">
-                                {{form_label(calculatorForPrematureForm.birthday)}}
+                            <div class="row">
+                                <div class="col-lg-4 col-12">
+                                    <label><strong>Date des dernières règles</strong></label>
+                                    <div class="input-group mb-3">
+                                        <input type="date" class="form-control" name="lastMenstrualDate">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-12">
+                                    <label><strong>Date de début de grossesse</strong></label>
+                                    <div class="input-group mb-3">
+                                        <input type="date" class="form-control" name="pregnancyStartDate">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-12">
+                                    <label><strong>Date de terme (41 SA)</strong></label>
+                                    <div class="input-group mb-3">
+                                        <input type="date" class="form-control" name="termDate">
+                                    </div>
+                                </div>
                             </div>
-                            {{form_widget(calculatorForPrematureForm.birthday)}}
-                            <div class="form-text text-danger font-weight-bold">
-                                {{form_errors(calculatorForPrematureForm.birthday)}}
-                            </div>
-                        </div>
-                        <div class="form-label">
-                            <label for="inputPassword6" class="col-form-label">Terme</label>
-                        </div>
-                        <div class="row g-3 align-items-center">
-                            <div class="col-lg-5 col-4">
-                                {{form_widget(calculatorForPrematureForm.termSA)}}
-                            </div>
-                            <div class="col-lg-1 col-2">
-                                <span id="passwordHelpInline" class="form-text">
-                                    SA
-                                </span>
-                            </div>
-                            <div class="col-lg-5 col-4">
-                                {{form_widget(calculatorForPrematureForm.termSADays)}}
-                            </div>
-                            <div class="col-lg-1 col-2">
-                                <span id="passwordHelpInline" class="form-text">
-                                    jours
-                                </span>
-                            </div>
-                            <div class="form-text text-danger font-weight-bold">
-                                {{form_errors(calculatorForPrematureForm.termSA)}}
-                                {{form_errors(calculatorForPrematureForm.termSADays)}}
-                            </div>
-                        </div>
+                            <div class="row">
+                                <div class="col-12 ">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <strong><i>Dates importantes</i></strong>
+                                        </div>
+                                        <div class="card-body">
+                                            <div id="pregnancyAge" class="form-text">
+                                                <ul style="list-style-type: none;">
+                                                    <li></li>
+                                                    <li></li>
+                                                    <li></li>
+                                                    <li></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                        <div class="my-3">
-                            {% if form_errors(calculatorForPrematureForm) %}
-                            <div class="error-message d-block">
-                                {{form_errors(calculatorForPrematureForm)}}
+
+                                <div class="my-3">
+                                </div>
                             </div>
-                            {% endif %}
-                        </div>
-                        <div class="text-center"><button type="submit">Calculez</button></div>
-                    </div>
-                    {{form_end(calculatorForPrematureForm)}}
+                    </form>
                 </div>
-                {% if result %}
-                <div class="col-lg-8 {% if not result %}d-none{% endif %}aos-init aos-animate" data-aos="fade-up">
+
+                <div class="col-lg-8 aos-init aos-animate" data-aos="fade-up">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Deux Âges, Une Famille</h5>
@@ -109,12 +109,10 @@
                                     fournies.
                                 </p>
                                 <ul>
-                                    <li>Date de naissance : {{data.birthday | date('j F Y', "Europe/Paris")}}</li>
-                                    <li>Terme SA : {{data.termSA}} semaine{% if data.termSA > 1 %}s{% endif %}
+                                    <li>Date de naissance : </li>
+                                    <li>Terme SA :
                                     </li>
-                                    <li>Terme jours : {% if data.termSADays %}{{data.termSADays}} jour{% if
-                                        data.termSADays > 1 %}s{% endif %} {% else %}
-                                        -{% endif %}
+                                    <li>Terme jours :
                                     </li>
                                 </ul>
                                 <table class="table">
@@ -133,10 +131,10 @@
                                     <tbody>
                                         <tr>
                                             <td class="text-center" style="background-color: #f2f2f2;">
-                                                {{realAge}}
+
                                             </td>
                                             <td class="text-center" style="background-color: #f2f2f2;">
-                                                {{fixedAge}}
+
                                             </td>
                                         </tr>
                                     </tbody>
@@ -149,7 +147,7 @@
                         </div>
                     </div>
                 </div>
-                {% endif %}
+
             </div>
 
 
@@ -250,4 +248,8 @@
     </section>
 
 </main><!-- End #main -->
+{% endblock %}
+
+{% block javascripts %}
+<script src="{{asset('assets/js/tool/obstetricalCastor.js')}}"></script>
 {% endblock %}
