@@ -17,7 +17,7 @@ class SendMailService
 
     public function send(string $from, string $to, string $subject, string $template, array $context, string $replyTo = null): void
     {
-        $from = new Address($from, 'Contact RPVO');
+        $from = new Address($from, 'Test Contact RPVO');
         // On crée le mail 
         if ($replyTo) {
             $email = (new TemplatedEmail())

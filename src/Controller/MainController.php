@@ -13,6 +13,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
+    private $mailRecever = "contact@rostand-migan.com";
+
     #[Route('/', name: 'app_main')]
     public function index(): Response
     {
@@ -33,8 +35,8 @@ class MainController extends AbstractController
         if ($contactForm->isSubmitted() && $contactForm->isValid()) {
             $data = $contactForm->getData();
             $mailer->send(
-                'contact@rpvo.org',
-                'contact@rpvo.org',
+                $this->mailRecever,
+                $this->mailRecever,
                 $data['subject'],
                 'contact',
                 $data,
@@ -61,8 +63,8 @@ class MainController extends AbstractController
             }
 
             $mailer->send(
-                'contact@rpvo.org',
-                'contact@rpvo.org',
+                $this->mailRecever,
+                $this->mailRecever,
                 "Demande d'adhésion au réseau RPVO",
                 'memberShip',
                 $data,
