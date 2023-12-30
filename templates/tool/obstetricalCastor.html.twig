@@ -1,5 +1,5 @@
 {% extends "base.html.twig" %}
-{% block title %}RPVO | Contact{% endblock %}
+{% block title %}Roulette obstétricale - RPVO{% endblock %}
 
 
 {% block body %}
@@ -34,7 +34,7 @@
 
             <div class="row gy-4 contact">
 
-                <div class="col-lg-4">
+                <div class="col-lg-3">
                     <div class="content px-xl-5">
                         <h3><strong>Roulette obstétricale</strong></h3>
                         <p>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
 
-                <div class="col-lg-8">
+                <div class="col-lg-9">
                     <form name="calculator_for_premature_form" method="post">
                         <div class="php-email-form pt-2 pb-2">
                             <div class="form-text" id="basic-addon4">
@@ -266,6 +266,15 @@
                                     </a>
                                 </div>
                             </div>
+                            <div class="form-text" id="basic-addon4">
+                                <ul style="list-style-type: none;">
+                                    <li>
+                                        <i>*Pour rappel, cette Roulette obstétricale est proposée à titre informatif et
+                                            peut comporter des inexactitudes. Si vous avez le
+                                            moindre doute ou question vous devez consulter votre sage-femme.</i>
+                                    </li>
+                                </ul>
+                            </div>
                     </form>
                 </div>
 
@@ -293,16 +302,41 @@
 
                     <div class="accordion accordion-flush aos-init aos-animate" id="faqlist" data-aos="fade-up"
                         data-aos-delay="100">
-
                         <div class="accordion-item">
                             <h3 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq-content-1">
                                     <span class="num">1.</span>
-                                    Terme SA ?
+                                    Le Terme ?
                                 </button>
                             </h3>
                             <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                                <div class="accordion-body">
+                                    <strong><i>« Être à terme »</i></strong>
+                                    <p>
+                                        Une femme enceinte est considérée « à terme » lorsqu'elle atteint sa 37ème SA,
+                                        ce
+                                        qui correspond au début du 9ème mois.
+                                    </p>
+
+                                    <strong><i>« Dépasser son terme »</i></strong>
+                                    <p>
+                                        On dira qu'une femme dépasse son terme lorsqu'elle n'a toujours pas accouché à
+                                        la fin de la 41ème SA, soit à la fin de son 9ème mois de grossesse.
+                                    </p>
+                                </div>
+                            </div>
+                        </div><!-- # Faq item-->
+
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-2">
+                                    <span class="num">2.</span>
+                                    Terme SA ?
+                                </button>
+                            </h3>
+                            <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                 <div class="accordion-body">
                                     Le terme "SA" dans le contexte de la grossesse signifie "semaines d'aménorrhée". Les
                                     semaines d'aménorrhée représentent le nombre de semaines qui se sont écoulées depuis
@@ -318,17 +352,27 @@
                         <div class="accordion-item">
                             <h3 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq-content-2">
-                                    <span class="num">2.</span>
-                                    Terme Jour ?
+                                    data-bs-target="#faq-content-3">
+                                    <span class="num">3.</span>
+                                    Comment calculer le terme de grossesse ?
                                 </button>
                             </h3>
-                            <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                 <div class="accordion-body">
-                                    Le terme "Terme Jour" dans le contexte de la grossesse se réfère au nombre de jours
-                                    écoulés depuis le premier jour des dernières règles de la femme enceinte. Il
-                                    complète la mesure des semaines d'aménorrhée (SA) en fournissant une indication plus
-                                    détaillée du temps écoulé depuis le début du cycle menstruel.
+                                    <p>
+                                        La règle de Naegele est une méthode utilisée pour estimer la date probable de
+                                        l'accouchement en ajoutant 280 jours (ou 40 semaines) au premier jour de la
+                                        dernière
+                                        menstruation de la femme enceinte. Elle est basée sur l'idée que la
+                                        grossesse dure généralement 280 jours à partir de ce point de référence.
+                                    </p>
+
+                                    <p>
+                                        Autrement dit, pour calculer le terme de grossesse selon la règle de Naegele, on
+                                        prend la date du premier jour des
+                                        dernières règles, on ajoute 280 jours, et on obtient une estimation de la date
+                                        probable d'accouchement.
+                                    </p>
                                 </div>
                             </div>
                         </div><!-- # Faq item-->
@@ -336,27 +380,29 @@
                         <div class="accordion-item">
                             <h3 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq-content-3">
-                                    <span class="num">3.</span>
-                                    Comment calculer l'âge corrigé
+                                    data-bs-target="#faq-content-4">
+                                    <span class="num">4.</span>
+                                    Les consultations
                                 </button>
                             </h3>
-                            <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                 <div class="accordion-body">
-                                    L'âge corrigé d'un bébé prématuré peut être calculé en soustrayant le nombre de
-                                    semaines de prématurité de son âge chronologique. Voici comment procéder :
-                                    <br>
-                                    <h5>Formule :</h5>
                                     <p>
-                                        <code>Âge corrigé = Âge chronologique - Nombre de semaines de prématurité</code>
+                                        Il est généralement recommandé que les consultations prénatales commencent au
+                                        plus tôt au cours du premier trimestre de
+                                        la grossesse. Idéalement, la première consultation prénatale devrait avoir lieu
+                                        dans les 8 à 12 premières semaines de
+                                        grossesse. Cela permet aux professionnels de la santé de surveiller la santé de
+                                        la mère et du fœtus dès le début de la
+                                        grossesse, de fournir des conseils appropriés et de détecter rapidement tout
+                                        problème potentiel.
                                     </p>
 
-                                    <h5>Exemple :</h5>
-                                    <p>Supposons qu'un bébé a 4 mois et soit né à 28 semaines de grossesse.</p>
-
-                                    <code>Nombre de semaines de prématurité = Terme complet - Terme SA</code><br>
-                                    <code>Nombre de semaines de prématurité = 40 semaines - 28 semaines = 12 semaines</code><br>
-                                    <code>Âge corrigé = 4 mois - (12 semaines / 4 semaines/mois) = 1 mois</code><br>
+                                    <p>
+                                        En outre, après la première consultation prénatale, il est recommandé que les
+                                        consultations de suivi se poursuivent à intervalles
+                                        réguliers, souvent mensuels au cours du deuxième trimestre de la grossesse.
+                                    </p>
                                 </div>
                             </div>
                         </div><!-- # Faq item-->

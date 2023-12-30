@@ -172,6 +172,10 @@ function showGeneralCalendar(termDate, pregnancyStartDate, lastMenstrualDate) {
 
 function printCalendar(e) {
   e.preventDefault();
+  if (lastMenstrualDate.value == "") {
+    alert("*Renseignez au moins une date que vous connaissez");
+    return;
+  }
   print();
 }
 
@@ -227,6 +231,7 @@ termDate.addEventListener("change", function (event) {
 vacationType.addEventListener("change", function (event) {
   if (lastMenstrualDate.value == "") {
     result_vacaionType.textContent = "";
+    alert("*Renseignez au moins une date que vous connaissez");
     return;
   }
   let vacationTypeValue = vacationType.value;
@@ -288,6 +293,7 @@ vacationType.addEventListener("change", function (event) {
 specificDateField.addEventListener("change", function (event) {
   if (lastMenstrualDate.value == "") {
     result_specificDate.textContent = "";
+    alert("*Renseignez au moins une date que vous connaissez");
     return;
   }
   let result_specific = calcPregnancyAge(
