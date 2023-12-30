@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ComingSoonController extends AbstractController
 {
-    #[Route('/', name: 'app_coming_soon')]
+    #[Route('/maintenance', name: 'app_coming_soon')]
     public function index(Request $request, SendMailService $mailer): Response
     {
         $contactForm = $this->createForm(ContactComingType::class);

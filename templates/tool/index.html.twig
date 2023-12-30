@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+{% block title %}RPVO | Contact{% endblock %}
+
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+        <div class="page-header d-flex align-items-center" style="background-image: url('');">
+            <div class="container position-relative">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h2>RPVO</h2>
+                        <p>Consultez la liste des outils mise à votre disposition</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <ol>
+                    <li><a href="{{path('app_main')}}">Accueil</a></li>
+                    <li>Outils pratiques</li>
+                </ol>
+            </div>
+        </nav>
+    </div><!-- End Breadcrumbs -->
+
+
+    {% include "_partials/_toolsList.html.twig" %}
+
+</main><!-- End #main -->
+{% endblock %}

@@ -1,0 +1,203 @@
+{% extends "base.html.twig" %}
+{% block title %}RPVO | Contact{% endblock %}
+
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+        <div class="page-header d-flex align-items-center" style="background-image: url('');">
+            <div class="container position-relative">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h2>RPVO</h2>
+                        <p>Bienvenue sur la page contact du Réseau Périnatal du Val d'Oise (R.P.V.O.)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <ol>
+                    <li><a href="{{path('app_main')}}">Accueil</a></li>
+                    <li>Contact</li>
+                </ol>
+            </div>
+        </nav>
+    </div><!-- End Breadcrumbs -->
+
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h2>NOUS CONTACTER</h2>
+                <p>
+                    Pour toutes remarques, questions, vous pouvez nous adresser un mail via le formulaire
+                    ci-dessous.
+                </p>
+            </div>
+
+            <div class="row gx-lg-0 gy-4">
+
+                <div class="col-lg-4">
+
+                    <div class="info-container d-flex flex-column align-items-center justify-content-center">
+                        <div class="info-item d-flex">
+                            <i class="bi bi-geo-alt flex-shrink-0"></i>
+                            <div>
+                                <h4>Adresse:</h4>
+                                <p>
+                                    <a href="https://goo.gl/maps/8rEPScP6wrC6ybAk8" class="text-light">Centre
+                                        Pluridisciplinaire
+                                        Danton 2 bis rue Danton</a>
+                                    <br>
+                                    95240 Cormeilles-en-Parisis
+                                </p>
+                            </div>
+                        </div><!-- End Info Item -->
+
+                        <div class="info-item d-flex">
+                            <i class="bi bi-envelope flex-shrink-0"></i>
+                            <div>
+                                <h4>Email:</h4>
+                                <p>contact@rpvo.org</p>
+                            </div>
+                        </div><!-- End Info Item -->
+
+                        <div class="info-item d-flex">
+                            <i class="bi bi-phone flex-shrink-0"></i>
+                            <div>
+                                <h4>Téléphone:</h4>
+                                <p>
+                                    09 83 95 00 12 | 09 86 87 15 89
+                                </p>
+                            </div>
+                        </div><!-- End Info Item -->
+                    </div>
+
+                </div>
+
+                <div class="col-lg-8">
+                    {{form_start(contactForm)}}
+                    <div class="php-email-form">
+                        <div class="row">
+                            <div class="col-md-6 form-group">
+                                {{form_widget(contactForm.name)}}
+                            </div>
+                            <div class="col-md-6 form-group mt-3 mt-md-0">
+                                {{form_widget(contactForm.fieldEmail)}}
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            {{form_widget(contactForm.subject)}}
+                        </div>
+                        <div class="form-group mt-3">
+                            {{form_widget(contactForm.message)}}
+                        </div>
+                        <div class="my-3">
+                            {% if form_errors(contactForm) %}
+                            <div class="error-message d-block">
+                                {{form_errors(contactForm)}}
+                            </div>
+                            {% endif %}
+
+                            {% for label, messages in app.flashes %}
+                            {% if label == 'contactSuccess' %}
+                            {% for message in messages %}
+                            <div class="sent-message d-block">{{ message }}</div>
+                            {% endfor %}
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="text-center"><button type="submit">Envoyez</button></div>
+                    </div>
+                    {{form_end(contactForm)}}
+                </div><!-- End Contact Form -->
+
+            </div>
+        </div>
+    </section><!-- End Contact Section -->
+
+    <!-- ======= Our Team Section ======= -->
+    <section id="team" class="team">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>A votre écoute</h2>
+                <p>
+                    Vous pouvez contacter l'équipe de coordination du RPVO :
+                </p>
+            </div>
+
+            <div class="row gy-4 justify-content-around">
+                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+                    <div class="member">
+                        <i class="bi bi-person"></i>
+                        <h4>Maryse GODREAU</h4>
+                        <span>Sage-Femme coordinatrice</span>
+                        <div class="d-flex flex-row justify-content-center" style="margin-top: 5%;">
+                            <a href="">
+                                <span></span>
+                            </a>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center">
+                            <span>Téléphone : 07 55 60 52 31</span>
+                        </div>
+                    </div>
+                </div><!-- End Team Member -->
+                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+                    <div class="member">
+                        <i class="bi bi-person"></i>
+                        <h4>Hélène PAYEN DE LA GARANDERIE</h4>
+                        <span>Sage-Femme coordinatrice</span>
+                        <div class="d-flex flex-row justify-content-center" style="margin-top: 5%;">
+                            <a href="">
+                                <span></span>
+                            </a>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center">
+                            <span>Téléphone : 06 50 34 27 08</span>
+                        </div>
+                    </div>
+                </div><!-- End Team Member -->
+                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+                    <div class="member">
+                        <i class="bi bi-person"></i>
+                        <h4>Audrey DIARRA</h4>
+                        <span>Assistante de coordination</span>
+                        <div class="d-flex flex-row justify-content-center" style="margin-top: 5%;">
+                            <a href="mailto:audreydiarra@rpvo.org">
+                                <span>audreydiarra@rpvo.org</span>
+                            </a>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center">
+                            <span>Téléphone : 09 83 95 00 12</span>
+                        </div>
+                    </div>
+                </div><!-- End Team Member -->
+                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+                    <div class="member">
+                        <i class="bi bi-person"></i>
+                        <h4>Thomas FEVRIER</h4>
+                        <span>Coordinateur administratif</span>
+                        <div class="d-flex flex-row justify-content-center" style="margin-top: 5%;">
+                            <a href="mailto:thomasfevrier@rpvo.org">
+                                <span>thomasfevrier@rpvo.org</span>
+                            </a>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center">
+                            <span>Téléphone : 09 83 80 80 12</span>
+                        </div>
+                    </div>
+                </div><!-- End Team Member -->
+
+            </div>
+
+        </div>
+    </section><!-- End Our Team Section -->
+
+
+</main><!-- End #main -->
+{% endblock %}
