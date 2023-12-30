@@ -91,57 +91,182 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-12 mt-2 aos-init aos-animate" data-aos="fade-up">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="card-header">
+                                                <strong><i>Calendrier général</i></strong>
+                                            </div>
+                                            <div class="card-text" style="font-size: 15px;color: #6c757d;">
+                                                <table class="table mt-2">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col" class="text-center">
+                                                            </th>
+                                                            <th scope="col" class="text-center">
+                                                            </th>
+                                                            <th scope="col" class="text-center">
+                                                            </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="generalCalendar">
+                                                        <tr>
+                                                            <td class="form-text" style="background-color: #f2f2f2;">
+                                                                Dernières règles
+                                                            </td>
+                                                            <td class="form-text">
+                                                            </td>
+                                                            <td class="form-text">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="form-text" style="background-color: #f2f2f2;">
+                                                                Début de grossesse
+                                                            </td>
+                                                            <td class="form-text">
+                                                            </td>
+                                                            <td class="form-text">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="form-text" style="background-color: #f2f2f2;">
+                                                                12 SA
+                                                            </td>
+                                                            <td class="form-text">
+                                                            </td>
+                                                            <td class="form-text">
+                                                                1re échographie
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="form-text" style="background-color: #f2f2f2;">
+                                                                15 SA
+                                                            </td>
+                                                            <td class="form-text">
+                                                            </td>
+                                                            <td class="form-text">
+                                                                Déclaration de la grossesse
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="form-text" style="background-color: #f2f2f2;">
+                                                                22 SA
+                                                            </td>
+                                                            <td class="form-text">
+                                                            </td>
+                                                            <td class="form-text">
+                                                                2e échographie
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="form-text" style="background-color: #f2f2f2;">
+                                                                32 SA
+                                                            </td>
+                                                            <td class="form-text">
+                                                            </td>
+                                                            <td class="form-text">
+                                                                3e échographie
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="form-text" style="background-color: #f2f2f2;">
+                                                                Terme- 41 SA
+                                                            </td>
+                                                            <td class="form-text">
+                                                            </td>
+                                                            <td class="form-text">
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="form-text" style="background-color: #f2f2f2;">
+                                                                Terme - 9 mois
+                                                            </td>
+                                                            <td class="form-text">
+                                                            </td>
+                                                            <td class="form-text">
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-2 aos-init aos-animate" data-aos="fade-up">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="card-header">
+                                                <strong><i>Calendrier spécifique</i></strong>
+                                            </div>
+                                            <div class="card-text" style="font-size: 15px;color: #6c757d;">
+                                                <div class="input-group mb-3 mt-1">
+                                                    <select name="vacationType" id="vacationType" class="form-select">
+                                                        <option></option>
+                                                        <optgroup label="Congé maternité">
+                                                            <option value="G1">Grossesse simple (6s - T - 10S)</option>
+                                                            <option value="G1E">Grossesse simple / 2 enfants à charge ou
+                                                                2 enfants nés viables (8s - T - 18S)</option>
+                                                            <option value="G2">Grossesse gémélaire (12s - T - 22S)
+                                                            </option>
+                                                            <option value="G3">Grossesse triple et plus (24s - T - 22S)
+                                                            </option>
+                                                        </optgroup>
+                                                        <optgroup label="Dépistage T21">
+                                                            <option value="T21COMBI">T21 : dépistage combiné (11 → 13+6
+                                                                SA)</option>
+                                                            <option value="T212TRI">T21 : dépistage 2e trimestre (14 →
+                                                                17+6 SA)</option>
+                                                        </optgroup>
+                                                        <optgroup label="IVG">
+                                                            <option value="IVGMed">Période légale IVG médicamenteuse (4
+                                                                → 9 SA)</option>
+                                                            <option value="IVGChir">Période légale IVG chirurgicale (4 →
+                                                                16 SA)</option>
+                                                        </optgroup>
+                                                    </select>
+                                                </div>
+                                                <strong>
+                                                    <i class="text-small" id="result_vacaionType"></i>
+                                                </strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mt-2 aos-init aos-animate" data-aos="fade-up">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="card-header">
+                                                <strong><i>Terme à une date donnée</i></strong>
+                                            </div>
+                                            <div class="card-text" style="font-size: 15px;color: #6c757d;">
+                                                <div class="input-group mb-3 mt-1">
+                                                    <input type="date" class="form-control" name="specificDateField">
+                                                </div>
+                                                <div>
+                                                    <strong>
+                                                        <i class="text-small" id="result_specificDate"></i>
+                                                    </strong>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 d-flex align-items-center justify-content-around">
+                                    <a href="" class="btn mt-3" style="background-color:#f2f2f2;">
+                                        <i class="bi bi-arrow-clockwise"></i>
+                                        Réinitialiser
+                                    </a>
+
+                                    <a href="" class="btn mt-3" style="background-color:#f2f2f2;" id="print"
+                                        onclick="printCalendar(event)">
+                                        <i class="bi bi-printer"></i>
+                                        Imprimer
+                                    </a>
+                                </div>
                             </div>
                     </form>
-                </div>
-
-                <div class="col-lg-8 aos-init aos-animate" data-aos="fade-up">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Deux Âges, Une Famille</h5>
-                            <div class="card-text" style="font-size: 15px;color: #6c757d;">
-                                <p>
-                                    Consultez ci-dessous l'âge réel et ajusté du bébé en fonction des données
-                                    fournies.
-                                </p>
-                                <ul>
-                                    <li>Date de naissance : </li>
-                                    <li>Terme SA :
-                                    </li>
-                                    <li>Terme jours :
-                                    </li>
-                                </ul>
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col" class="text-center text-uppercase"
-                                                style="background-color: var(--color-primary); color:#f2f2f2;">
-                                                Âge réel
-                                            </th>
-                                            <th scope="col" class="text-center text-uppercase"
-                                                style="background-color: var(--color-primary);color:#f2f2f2;">
-                                                Âge corrigé
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="text-center" style="background-color: #f2f2f2;">
-
-                                            </td>
-                                            <td class="text-center" style="background-color: #f2f2f2;">
-
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <a href="" class="btn" style="background-color:#f2f2f2;">
-                                <i class="bi bi-arrow-left"></i>
-                                Réinitialiser
-                            </a>
-                        </div>
-                    </div>
                 </div>
 
             </div>
@@ -151,7 +276,7 @@
         </div>
     </section>
 
-    <section id="outils" class="faq mt-4">
+    <section id="outils-guide" class="faq mt-4">
         <div class="container aos-init aos-animate" data-aos="fade-up">
 
             <div class="row gy-4">
@@ -248,4 +373,33 @@
 
 {% block javascripts %}
 <script src="{{asset('assets/js/tool/obstetricalCastor.js')}}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+
+        #outils,
+        #outils * {
+            visibility: visible;
+            width: 100%;
+            font-size: 12px;
+        }
+
+        tr {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        #outils {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+</style>
 {% endblock %}
