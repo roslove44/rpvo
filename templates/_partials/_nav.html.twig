@@ -1,16 +1,32 @@
 <!-- ======= Header ======= -->
-{# <section id="topbar" class="topbar d-flex align-items-center">
+<section id="topbar" class="topbar d-flex align-items-center">
     <div class="container d-flex justify-content-center justify-content-md-between">
-        <div class="contact-info d-flex align-items-center">
-            <i class="bi bi-envelope d-flex align-items-center"><a
-                    href="mailto:contact@rpvo.org">contact@rpvo.org</a></i>
-            <i class="bi bi-phone d-flex align-items-center ms-4"><span>09 83 95 00 12</span></i>
+        <div class="social-links d-none d-md-flex align-items-center">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
         </div>
-        <div class="admin-btn" style="font-family: var(--font-primary);">
-            <span>Accès professionnel</span>
+        <div class="contact-info  d-flex align-items-center">
+            <i class="bi bi-box-arrow-in-right d-flex align-items-center ms-4"><a href="">Espace
+                    Membre</a></i>
+            &nbsp;&nbsp;
+            <i class="bi bi-question-circle"><a href="{{path('app_main_about')}}">Qui sommes-nous ?</a></i></i>
+
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Dropdown button
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-</section><!-- End Top Bar --> #}
+</section>
 
 <header id="header" class="header d-flex align-items-center">
 
@@ -22,10 +38,11 @@
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a href="{{path('app_main')}}">IVG - Contraception</a></li>
-                <li><a href="{{path('app_main')}}">Vulnérabilité</a></li>
+                <li><a href="{{path('app_main')}}">Vulnérabilités</a></li>
                 <li><a href="{{path('app_main')}}">Anténatal</a></li>
                 <li><a href="{{path('app_main')}}">Post-natal</a></li>
                 <li><a href="{{path('app_main')}}">Deuil périnatal</a></li>
+                <li><a href="{{path('app_main')}}">Suivi des enfants vulnérables</a></li>
                 <li class="dropdown">
                     <a href="{{path('app_tool')}}"><span>Outils pratiques</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>

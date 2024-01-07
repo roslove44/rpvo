@@ -1,0 +1,121 @@
+{% extends "base.html.twig" %}
+{% block title %}Adhésion - Réseau Périnatal du Val d'Oise (R.P.V.O.){% endblock %}
+
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+        <div class="page-header d-flex align-items-center breadcrumbs-adhesion">
+            <div class="container position-relative">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h2>RPVO</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <ol>
+                    <li><a href="{{path('app_main')}}">Accueil</a></li>
+                    <li>Qui sommes-nous ?</li>
+                </ol>
+            </div>
+        </nav>
+    </div><!-- End Breadcrumbs -->
+
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>Découvrez RPVO</h2>
+            </div>
+
+            <div class="row gy-4">
+                <div class="col-lg-6">
+                    <img src="{{asset('assets/img/about.webp')}}" class="img-fluid rounded-4 mb-4" alt="">
+                    <h3>Notre réseau de santé</h3>
+                    <p>
+                        Le Réseau Périnatal du Val d'Oise est un réseau de santé s'adressant aux futures mères, et mères
+                        du territoire départemental ainsi qu'à leurs bébés.
+                        <i>Il est régi par le Code de la Santé publique (article L. 6321-1).</i>
+                    </p>
+                    <p>
+                        Le R.P.V.O. a pour but l'amélioration du suivi de la femme enceinte et de
+                        son nouveau-né en favorisant notamment leur accès aux soins, la coordination et la continuité de
+                        leur prise en charge.
+                        Le R.P.V.O. est constitué en Association loi 1901 et bénéficie à ce titre de subventions
+                        publiques par l'Agence
+                        Régionale de Santé d'Ile-de-France (A.R.S.) dans le cadre du Fonds d'Intervention Régional
+                        (F.I.R.)
+                    </p>
+                    <p>
+                        Le Réseau Périnatal du Val d'Oise n'exerce pas directement d'activité de soins par lui-même, il
+                        ne remplace donc pas les professionnels de santé votre prenant en charge pour votre grossesse,
+                        il vient en appui et en soutien à ces derniers.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="content ps-0 ps-lg-5">
+                        <h3>Les objectifs du réseau</h3>
+                        <p class="fst-italic text-bold">
+                            Le Réseau Périnatal du Val d'Oise a pour objectif général, sur le territoire du Val d'Oise :
+                        </p>
+                        <ul>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                D'accroître la sécurité autour de la naissance par la prise en charge globale de la
+                                parturiente et du nouveau-né,
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                D'assurer une meilleure orientation de la parturiente en fonction de son état et / ou de
+                                celui de l'enfant à naître,
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                De favoriser la coordination, la complémentarité et la continuité des soins dispensés,
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                De promouvoir la délivrance de soins de proximité et de qualité, dans le respect des
+                                principes et normes néonatals,
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                D'assurer l'harmonisation de la prise en charge de l'accueil et de l'orientation du
+                                couple
+                                mère-enfant,
+                            </li>
+                        </ul>
+                        <p>
+                            Et en complément :
+                        </p>
+                        <ul>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                De participer à la formation des professionnels de la périnatalité,
+                            </li>
+                            <li>
+                                <i class="bi bi-check-circle-fill"></i>
+                                De faciliter l'information et la communication entre ces professionnels et la
+                                population.
+                            </li>
+                        </ul>
+
+                        <div class="position-relative mt-4 text-center">
+                            <img src="{{asset('assets/img/about-2.webp')}}" class="img-fluid rounded-4" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section><!-- End About Us Section -->
+
+</main><!-- End #main -->
+{% endblock %}

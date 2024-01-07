@@ -20,10 +20,11 @@ class MainController extends AbstractController
     {
         return $this->render('accueil/index.html.twig');
     }
-    #[Route('/accueil', name: 'app_main_home')]
-    public function home(): Response
+
+    #[Route('/qui-sommes-nous', name: 'app_main_about')]
+    public function about(): Response
     {
-        return $this->render('accueil/index.html.twig');
+        return $this->render('accueil/about.html.twig');
     }
 
     #[Route('/contact', name: 'app_main_contact')]
@@ -50,31 +51,37 @@ class MainController extends AbstractController
         return $this->render('accueil/contact.html.twig', compact('contactForm'));
     }
 
-    #[Route('/adhesion', name: 'app_main_membership')]
-    public function membership(Request $request, SendMailService $mailer): Response
+    // #[Route('/adhesion', name: 'app_main_membership')]
+    // public function membership(Request $request, SendMailService $mailer): Response
+    // {
+    //     $memberForm = $this->createForm(MemberShipFormType::class);
+    //     $memberForm->handleRequest($request);
+
+    //     if ($memberForm->isSubmitted() && $memberForm->isValid()) {
+    //         $data = $memberForm->getData();
+    //         if (!isset($data['otherOffice']) || empty($data['otherOffice'])) {
+    //             $data['otherOffice'] = "";
+    //         }
+
+    //         $mailer->send(
+    //             $this->mailRecever,
+    //             $this->mailRecever,
+    //             "Demande d'adhésion au réseau RPVO",
+    //             'memberShip',
+    //             $data,
+    //             $data['fieldEmail']
+    //         );
+    //         $this->addFlash('memberShipSuccess', "Votre demande d'adhésion a bien été reçu. L'Equipe du RPVO vous remercie !");
+    //         return $this->redirectToRoute('app_main_membership');
+    //     }
+
+    //     $memberForm = $memberForm->createView();
+    //     return $this->render('accueil/adhesion.html.twig', compact('memberForm'));
+    // }
+
+    #[Route('/accueil', name: 'app_main_home')]
+    public function home(): Response
     {
-        $memberForm = $this->createForm(MemberShipFormType::class);
-        $memberForm->handleRequest($request);
-
-        if ($memberForm->isSubmitted() && $memberForm->isValid()) {
-            $data = $memberForm->getData();
-            if (!isset($data['otherOffice']) || empty($data['otherOffice'])) {
-                $data['otherOffice'] = "";
-            }
-
-            $mailer->send(
-                $this->mailRecever,
-                $this->mailRecever,
-                "Demande d'adhésion au réseau RPVO",
-                'memberShip',
-                $data,
-                $data['fieldEmail']
-            );
-            $this->addFlash('memberShipSuccess', "Votre demande d'adhésion a bien été reçu. L'Equipe du RPVO vous remercie !");
-            return $this->redirectToRoute('app_main_membership');
-        }
-
-        $memberForm = $memberForm->createView();
-        return $this->render('accueil/adhesion.html.twig', compact('memberForm'));
+        return $this->render('accueil/index.html.twig');
     }
 }
