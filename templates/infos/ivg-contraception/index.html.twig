@@ -1,0 +1,50 @@
+{% extends "base.html.twig" %}
+{% block title %}Adhésion - Réseau Périnatal du Val d'Oise (R.P.V.O.){% endblock %}
+
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+        <div class="page-header d-flex align-items-center breadcrumbs-adhesion">
+            <div class="container position-relative">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h2>IVG - CONTRACEPTION</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <ol>
+                    <li><a href="{{path('app_main')}}">Accueil</a></li>
+                    <li>IVG - CONTRACEPTION</li>
+                </ol>
+            </div>
+        </nav>
+    </div><!-- End Breadcrumbs -->
+
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
+            <div class="section-header">
+                <h2>BULLETIN D'ADHESION</h2>
+                <p>
+                    Les données recueillies ici ont pour objet de tenir à jour notre fichier d'adhérents. Ces données
+                    seront utilisées pour vous faire apparaitre dans notre annuaire et vous envoyer nos newsletters
+                    ainsi que des informations sur les évènements que nous organisons. En aucun cas ces données ne
+                    seront cédées ou vendues à des tiers.
+                </p>
+            </div>
+
+            <div class="row gx-lg-0">
+
+            </div>
+        </div>
+    </section><!-- End Contact Section -->
+
+</main><!-- End #main -->
+{% endblock %}
