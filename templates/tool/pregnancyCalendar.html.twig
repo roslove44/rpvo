@@ -47,6 +47,88 @@
                 <div class="col-lg-9">
                     <form name="calculator_for_premature_form" method="post">
                         <div class="php-email-form pt-2 pb-2">
+                            {% if result %}
+                            <div class="col-lg-12 {% if not result %}d-none{% endif %}aos-init aos-animate"
+                                data-aos="fade-up">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Votre calendrier de grossesse</h5>
+                                        <div class="card-text" style="font-size: 15px;color: #6c757d;">
+                                            <p>
+                                            </p>
+                                            <table class="table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col" class="text-center text-uppercase"
+                                                            style="background-color: var(--color-primary); color:#f2f2f2;">
+                                                            Dâte prévue pour l'accouchement
+                                                        </th>
+                                                        <th scope="col" class="text-center text-uppercase"
+                                                            style="background-color: var(--color-primary);color:#f2f2f2;">
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-center" style="background-color: #f2f2f2;">
+                                                            {{result.estimatedDueDate | date('j F
+                                                            Y',"Europe/Paris")}}
+                                                        </td>
+                                                        <td class="text-center" style="background-color: #f2f2f2;">
+                                                            Jour J- {{result.differenceInDays}}
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="flex flex-column justify-content-center">
+                                                <div>
+                                                    <h6 class="text-bold">Echographie n°1</h6>
+                                                    <p>
+                                                        {{result.firstUltrasoundDate.min | date('j F
+                                                        Y',"Europe/Paris")}} jusqu'au
+                                                        {{result.firstUltrasoundDate.max | date('j F
+                                                        Y',"Europe/Paris")}}
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <h6 class="text-bold">Echographie n°1</h6>
+                                                    <p>
+                                                        {{result.secondUltrasoundDate.min | date('j F
+                                                        Y',"Europe/Paris")}} jusqu'au
+                                                        {{result.secondUltrasoundDate.max | date('j F
+                                                        Y',"Europe/Paris")}}
+                                                    </p>
+                                                </div>
+                                                <div>
+                                                    <h6 class="text-bold">Echographie n°3</h6>
+                                                    <p>
+                                                        {{result.thirdUltrasoundDate.min | date('j F
+                                                        Y',"Europe/Paris")}} jusqu'au
+                                                        {{result.thirdUltrasoundDate.max | date('j F
+                                                        Y',"Europe/Paris")}}
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <a href="" class="btn" style="background-color:#f2f2f2;">
+                                            <i class="bi bi-arrow-left"></i>
+                                            Réinitialiser
+                                        </a>
+                                    </div>
+                                </div>
+                                <p class="mt-2">
+                                    Vous voilà actuellement dans votre {{result.trimester.title}} de grossesse.
+                                    <br>
+                                    Le Réseau Périnatal du Val d'Oise met à votre disposition un guide complet afin de
+                                    vous assister durant votre grossesse.
+                                </p>
+                                <a href="{{ asset('assets/docs/Mémo Trimestre-' ~ result.trimester.rank ~ '.pdf') }}"
+                                    download target="_blank" class="buy-btn">Télécharger le mémo</a>
+                            </div>
+                            {% else %}
                             <div class="row align-items-start">
                                 <div class="col-lg-4 col-12">
                                     <label><strong>Date des dernières règles</strong></label>
@@ -62,7 +144,7 @@
                                     <label><strong>Durée du cycle</strong></label>
                                     <div class="mb-3">
                                         <select name="cycleDuration" id="cycleDuration" class="form-select" required>
-                                            <option>Durée de votre cycle</option>
+                                            <option value="">Durée de votre cycle</option>
                                             <option value="22">22</option>
                                             <option value="23">23</option>
                                             <option value="24">24</option>
@@ -88,6 +170,7 @@
                                     <button type="submit">Calculer</button>
                                 </div>
                             </div>
+                            {% endif %}
                     </form>
                 </div>
 

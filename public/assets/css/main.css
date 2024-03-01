@@ -2756,9 +2756,9 @@ section {
   background-color: #752b55d8;
 }
 
-.buy-btn:hover {
+/* .buy-btn:hover {
   transform: scale(90%);
-}
+} */
 
 .menu-header {
   min-height: 10px;
