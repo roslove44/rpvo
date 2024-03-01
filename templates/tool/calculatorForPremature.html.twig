@@ -21,8 +21,8 @@
         <nav>
             <div class="container">
                 <ol>
-                    <li><a href="">RPVO</a></li>
-                    <li><a href="">Outils pratiques</a></li>
+                    <li><a href="https://rpvo.mlc-site.fr/">RPVO</a></li>
+                    <li><a href="https://rpvo.mlc-site.fr/outils-pratiques/">Outils pratiques</a></li>
                     <li>Calculateur d'Âge réel ou corrigé pour les Prématurés</li>
                 </ol>
             </div>
@@ -111,7 +111,12 @@
                                     fournies.
                                 </p>
                                 <ul>
-                                    <li>Date de naissance : {{data.birthday | date('j F Y', "Europe/Paris")}}</li>
+                                    <li>
+                                        Date de naissance :
+                                        {{data.birthday | date('j')}}
+                                        {{data.birthday | date('F') | trans}}
+                                        {{data.birthday | date('Y')}}
+                                    </li>
                                     <li>Terme SA : {{data.termSA}} semaine{% if data.termSA > 1 %}s{% endif %}
                                     </li>
                                     <li>Terme jours : {% if data.termSADays %}{{data.termSADays}} jour{% if

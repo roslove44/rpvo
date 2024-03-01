@@ -21,8 +21,8 @@
         <nav>
             <div class="container">
                 <ol>
-                    <li><a href="">RPVO</a></li>
-                    <li><a href="">Outils pratiques</a></li>
+                    <li><a href="https://rpvo.mlc-site.fr/">RPVO</a></li>
+                    <li><a href="https://rpvo.mlc-site.fr/outils-pratiques/">Outils pratiques</a></li>
                     <li>Calendrier de grossesse</li>
                 </ol>
             </div>
@@ -71,8 +71,9 @@
                                                 <tbody>
                                                     <tr>
                                                         <td class="text-center" style="background-color: #f2f2f2;">
-                                                            {{result.estimatedDueDate | date('j F
-                                                            Y',"Europe/Paris")}}
+                                                            {{result.estimatedDueDate | date('j')}}
+                                                            {{result.estimatedDueDate | date('F') | trans}}
+                                                            {{result.estimatedDueDate | date('Y')}}
                                                         </td>
                                                         <td class="text-center" style="background-color: #f2f2f2;">
                                                             Jour J- {{result.differenceInDays}}
@@ -86,28 +87,40 @@
                                                 <div>
                                                     <h6 class="text-bold">Echographie n°1</h6>
                                                     <p>
-                                                        {{result.firstUltrasoundDate.min | date('j F
-                                                        Y',"Europe/Paris")}} jusqu'au
-                                                        {{result.firstUltrasoundDate.max | date('j F
-                                                        Y',"Europe/Paris")}}
+                                                        {{result.firstUltrasoundDate.min | date('j')}}
+                                                        {{result.firstUltrasoundDate.min | date('F') | trans}}
+                                                        {{result.firstUltrasoundDate.min | date('Y')}}
+
+                                                        jusqu'au
+                                                        {{result.firstUltrasoundDate.max | date('j')}}
+                                                        {{result.firstUltrasoundDate.max | date('F') | trans}}
+                                                        {{result.firstUltrasoundDate.max | date('Y')}}
                                                     </p>
                                                 </div>
                                                 <div>
-                                                    <h6 class="text-bold">Echographie n°1</h6>
+                                                    <h6 class="text-bold">Echographie n°2</h6>
                                                     <p>
-                                                        {{result.secondUltrasoundDate.min | date('j F
-                                                        Y',"Europe/Paris")}} jusqu'au
-                                                        {{result.secondUltrasoundDate.max | date('j F
-                                                        Y',"Europe/Paris")}}
+                                                        {{result.secondUltrasoundDate.min | date('j')}}
+                                                        {{result.secondUltrasoundDate.min | date('F') | trans}}
+                                                        {{result.secondUltrasoundDate.min | date('Y')}}
+
+                                                        jusqu'au
+                                                        {{result.secondUltrasoundDate.max | date('j')}}
+                                                        {{result.secondUltrasoundDate.max | date('F') | trans}}
+                                                        {{result.secondUltrasoundDate.max | date('Y')}}
                                                     </p>
                                                 </div>
                                                 <div>
                                                     <h6 class="text-bold">Echographie n°3</h6>
                                                     <p>
-                                                        {{result.thirdUltrasoundDate.min | date('j F
-                                                        Y',"Europe/Paris")}} jusqu'au
-                                                        {{result.thirdUltrasoundDate.max | date('j F
-                                                        Y',"Europe/Paris")}}
+                                                        {{result.thirdUltrasoundDate.min | date('j')}}
+                                                        {{result.thirdUltrasoundDate.min | date('F') | trans}}
+                                                        {{result.thirdUltrasoundDate.min | date('Y')}}
+
+                                                        jusqu'au
+                                                        {{result.thirdUltrasoundDate.max | date('j')}}
+                                                        {{result.thirdUltrasoundDate.max | date('F') | trans}}
+                                                        {{result.thirdUltrasoundDate.max | date('Y')}}
                                                     </p>
                                                 </div>
                                             </div>
@@ -121,7 +134,7 @@
                                                 vous assister durant votre grossesse.
                                             </p>
                                             <a href="{{ asset('assets/docs/Mémo Trimestre-' ~ result.trimester.rank ~ '.pdf') }}"
-                                                download target="_blank" class="buy-btn">Télécharger le mémo</a>
+                                                download target="_blank" class="text-bold">Télécharger le mémo</a>
 
                                         </div>
                                         <a href="" class="btn mt-2" style="background-color:#f2f2f2;">
@@ -195,6 +208,45 @@
                         <p>
                         </p>
                     </div>
+                </div>
+
+                <div class="col-lg-8">
+
+                    <div class="accordion accordion-flush aos-init aos-animate" id="faqlist" data-aos="fade-up"
+                        data-aos-delay="100">
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-1">
+                                    <span class="num">1.</span>
+                                    Pourquoi calculer sa date d'accouchement ?
+                                </button>
+                            </h3>
+                            <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                                <div class="accordion-body">
+                                    <p>
+                                        La nouvelle est tombée, vous êtes enceinte ! Nous vous félicitons pour cet
+                                        heureux évènement. Maintenant, il vous tarde
+                                        de savoir la date prévue pour l’arrivée de Bébé. En attendant votre rendez-vous
+                                        médical avec votre professionnel de
+                                        santé, qui estimera votre date d’accouchement, vous pouvez la calculer vous-même
+                                        grâce à notre calculateur de grossesse.
+                                        <br>
+                                        Calculer votre date de terme, qui sera ensuite confirmée avec votre
+                                        professionnel de santé, vous permettra de vous
+                                        préparer au mieux à l’arrivée de bébé. En effet, cet heureux évènement demande
+                                        une certaine organisation jusqu’au jour
+                                        de la naissance. Ainsi, vous devez prévoir les différentes étapes de la
+                                        grossesse que vous retrouverez dans votre
+                                        calendrier de grossesse personnalisé comme votre première échographie, le suivi
+                                        médical avec votre professionnel de
+                                        santé ou encore votre congé maternité.
+                                    </p>
+                                </div>
+                            </div>
+                        </div><!-- # Faq item-->
+                    </div>
+
                 </div>
             </div>
 
