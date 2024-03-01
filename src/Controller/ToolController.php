@@ -87,7 +87,7 @@ class ToolController extends AbstractController
             ];
 
 
-            $trimester = $this->determineTrimester($cycleIncidence);
+            $trimester = $this->determineTrimester($differenceInDays);
             $result = [
                 "lastMenstrualDate" => $lastMenstrualDate,
                 "cycleDuration" => $cycleDuration,
@@ -105,20 +105,20 @@ class ToolController extends AbstractController
 
     private function determineTrimester($daysPregnant)
     {
-        if ($daysPregnant >= 13 * 7) {
+        if ($daysPregnant <= 13 * 7) {
             return [
-                'rank' => 1,
-                'title' => "Premier trimestre"
+                'rank' => 3,
+                'title' => "Troisième trimestre"
             ];
-        } elseif ($daysPregnant >= 26 * 7) {
+        } elseif ($daysPregnant <= 26 * 7) {
             return [
                 'rank' => 2,
                 'title' => "Deuxième trimestre"
             ];
         } else {
             return [
-                'rank' => 3,
-                'title' => "Troisième trimestre"
+                'rank' => 1,
+                'title' => "Premier trimestre"
             ];
         }
     }

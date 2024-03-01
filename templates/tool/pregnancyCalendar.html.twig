@@ -112,21 +112,24 @@
                                                 </div>
                                             </div>
 
+                                            <p class="mt-2">
+                                                Vous voilà actuellement dans votre {{result.trimester.title}} de
+                                                grossesse.
+                                                <br>
+                                                Le Réseau Périnatal du Val d'Oise met à votre disposition un guide
+                                                complet afin de
+                                                vous assister durant votre grossesse.
+                                            </p>
+                                            <a href="{{ asset('assets/docs/Mémo Trimestre-' ~ result.trimester.rank ~ '.pdf') }}"
+                                                download target="_blank" class="buy-btn">Télécharger le mémo</a>
+
                                         </div>
-                                        <a href="" class="btn" style="background-color:#f2f2f2;">
+                                        <a href="" class="btn mt-2" style="background-color:#f2f2f2;">
                                             <i class="bi bi-arrow-left"></i>
                                             Réinitialiser
                                         </a>
                                     </div>
                                 </div>
-                                <p class="mt-2">
-                                    Vous voilà actuellement dans votre {{result.trimester.title}} de grossesse.
-                                    <br>
-                                    Le Réseau Périnatal du Val d'Oise met à votre disposition un guide complet afin de
-                                    vous assister durant votre grossesse.
-                                </p>
-                                <a href="{{ asset('assets/docs/Mémo Trimestre-' ~ result.trimester.rank ~ '.pdf') }}"
-                                    download target="_blank" class="buy-btn">Télécharger le mémo</a>
                             </div>
                             {% else %}
                             <div class="row align-items-start">
