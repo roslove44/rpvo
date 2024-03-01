@@ -4,6 +4,7 @@ namespace App\Service;
 
 use DateInterval;
 use DateTime;
+use DateTimeZone;
 
 class CalculatorForPrematureService
 {
@@ -11,16 +12,20 @@ class CalculatorForPrematureService
 
     public function __construct()
     {
-        $this->currentDate = new DateTime();
+        $this->currentDate = new DateTime('now', new DateTimeZone('Europe/Paris'));
     }
 
     public function calcFixedAge(DateTime $birthday, int $termSA, int $termSADays = 0): string
     {
+        $timezone = new DateTimeZone('Europe/Paris');
+        $birthday->setTimezone($timezone);
+
+
         // Calcul de l'âge corrigé
         $prematurityWeeks = (40 - $termSA);
         $prematurityWeeks = new DateInterval("P{$prematurityWeeks}W");
         $prematurityDays = new DateInterval("P{$termSADays}D");
-        $fixedDate = new DateTime($birthday->format('Y-m-d'));
+        $fixedDate = new DateTime($birthday->format('Y-m-d'), $timezone);
         $fixedDate->add($prematurityWeeks)->sub($prematurityDays);
         $fixedAge = $fixedDate->diff($this->currentDate);
 

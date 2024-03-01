@@ -13,13 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ToolController extends AbstractController
 {
-    #[Route('/outils', name: 'app_tool')]
-    public function index(): Response
-    {
-        return $this->render('tool/index.html.twig', []);
-    }
-
-    #[Route('/outils/calculateur-age-reel-age-corrige-pour-prematures', name: 'app_tool_calculatorForPremature')]
+    #[Route('calculateur-age-reel-age-corrige-pour-prematures', name: 'app_tool_calculatorForPremature')]
     public function calculatorForPremature(Request $request, CalculatorForPrematureService $calcFPS): Response
     {
         $calculatorForPrematureForm = $this->createForm(CalculatorForPrematureFormType::class);
@@ -44,9 +38,21 @@ class ToolController extends AbstractController
         return $this->render('tool/calculatorForPremature.html.twig', compact('calculatorForPrematureForm', 'fixedAge', 'realAge', 'result', 'data'));
     }
 
-    #[Route('/outils/roulette-obstetricale', name: 'app_tool_obstetricalCastor')]
+    #[Route('roulette-obstetricale', name: 'app_tool_obstetricalCastor')]
     public function obstetricalCastor(Request $request): Response
     {
         return $this->render('tool/obstetricalCastor.html.twig');
+    }
+
+    #[Route('echelle-scoree-epds', name: 'app_tool_echelleScoreeEpds')]
+    public function echelleScoreeEpds(Request $request): Response
+    {
+        return $this->redirect('https://rpvo.mlc-site.fr/outils-pratiques/echelle-scoree-epds/');
+    }
+
+    #[Route('calendrier-de-grossesse', name: 'app_tool_PregnancyCalendar')]
+    public function PregnancyCalendar(Request $request): Response
+    {
+        return $this->render('tool/pregnancyCalendar.html.twig');
     }
 }

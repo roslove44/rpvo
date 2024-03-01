@@ -1,0 +1,153 @@
+{% extends "base.html.twig" %}
+{% block title %}Roulette obstétricale - RPVO{% endblock %}
+
+
+{% block body %}
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs"
+        style="background: url(&quot;https://rpvo.mlc-site.fr/wp-content/themes/pregnancy/images/breadcrumb1.jpg&quot;) 50% 100% no-repeat;">
+        <div class="page-header d-flex align-items-center" style="background-image: url('');">
+            <div class="container position-relative">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h2>RPVO</h2>
+                        <p>Profitez des outils mis à votre disposition.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <ol>
+                    <li><a href="">RPVO</a></li>
+                    <li><a href="">Outils pratiques</a></li>
+                    <li>Calendrier de grossesse</li>
+                </ol>
+            </div>
+        </nav>
+    </div><!-- End Breadcrumbs -->
+
+
+    <section id="outils" class="faq">
+        <div class="container aos-init aos-animate" data-aos="fade-up">
+
+            <div class="row gy-4 contact">
+
+                <div class="col-lg-3">
+                    <div class="content px-xl-5">
+                        <h3><strong>Calendrier de grossesse</strong></h3>
+                        <p>
+                            Cet outil est un calendrier de dates utiles pour le suivi obstétrical.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-9">
+                    <form name="calculator_for_premature_form" method="post">
+                        <div class="php-email-form pt-2 pb-2">
+                            <div class="row align-items-start">
+                                <div class="col-lg-4 col-12">
+                                    <label><strong>Date des dernières règles</strong></label>
+                                    <div class="mb-3">
+                                        <input type="date" class="form-control" name="lastMenstrualDate"
+                                            aria-describedby="lastMenstrualDate" required>
+                                        <div class="form-text" id="lastMenstrualDate">
+                                            <i>*Date du 1er jour de mes dernières règles.</i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 col-12">
+                                    <label><strong>Durée du cycle</strong></label>
+                                    <div class="mb-3">
+                                        <select name="cycleDuration" id="cycleDuration" class="form-select" required>
+                                            <option>Durée de votre cycle</option>
+                                            <option value="22">22</option>
+                                            <option value="23">23</option>
+                                            <option value="24">24</option>
+                                            <option value="25">25</option>
+                                            <option value="26">26</option>
+                                            <option value="27">27</option>
+                                            <option value="28">28</option>
+                                            <option value="29">29</option>
+                                            <option value="30">30</option>
+                                            <option value="31">31</option>
+                                            <option value="32">32</option>
+                                            <option value="33">33</option>
+                                            <option value="34">34</option>
+                                            <option value="35">35</option>
+                                        </select>
+                                        <div class="form-text" id="pregnancyStartDate">
+                                            <i>*Le cycle menstruel est variable d'une femme à l'autre. Un cycle
+                                                menstruel normal se situe entre 22 et 35 jours.</i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-12 my-2 mt-lg-4">
+                                    <button type="submit">Calculer</button>
+                                </div>
+                            </div>
+                    </form>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </section>
+
+    <section id="outils-guide" class="faq mt-4">
+        <div class="container aos-init aos-animate" data-aos="fade-up">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-4">
+                    <div class="content px-xl-5">
+                        <h3>Le Guide <strong>Pratique</strong></h3>
+                        <p>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main><!-- End #main -->
+{% endblock %}
+
+{% block javascripts %}
+{#
+<script src="{{asset('assets/js/tool/obstetricalCastor.js')}}"></script> #}
+{% endblock %}
+
+{% block stylesheets %}
+<style>
+    @media print {
+        body * {
+            visibility: hidden;
+        }
+
+        #outils,
+        #outils * {
+            visibility: visible;
+            width: 100%;
+            font-size: 12px;
+        }
+
+        tr {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        #outils {
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    }
+</style>
+{% endblock %}
