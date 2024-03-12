@@ -25,6 +25,8 @@ let specificDateField = document.querySelector(
   "input[name='specificDateField']"
 );
 let result_specificDate = document.querySelector("#result_specificDate");
+let personnalCalendar = document.querySelector("#personnalCalendar");
+let memo = document.querySelector("#memo");
 // End Base data
 
 function calculateDatesByLastMenstrualDate(lastMenstrualDate) {
@@ -179,6 +181,16 @@ function printCalendar(e) {
   print();
 }
 
+function calcCurrentTrim(pregnancyAgeWeeks) {
+  if (pregnancyAgeWeeks >= 0 && pregnancyAgeWeeks <= 12) {
+    return 1;
+  } else if (pregnancyAgeWeeks > 12 && pregnancyAgeWeeks <= 24) {
+    return 2;
+  } else {
+    return 3;
+  }
+}
+
 // Attacher la fonction calculateDates à l'événement de changement de lastMenstrualDate
 lastMenstrualDate.addEventListener("change", function (event) {
   let result = calculateDatesByLastMenstrualDate(lastMenstrualDate);
@@ -308,4 +320,19 @@ specificDateField.addEventListener("change", function (event) {
     " SA " +
     result_specific.remainingDays +
     " J ";
+});
+
+personnalCalendar.addEventListener("click", function (event) {
+  event.preventDefault();
+  if (termDate.value == "") {
+    alert("*Renseignez au moins une date que vous connaissez");
+    return;
+  } else {
+    let pregnancyAgeCalc = calcPregnancyAge(pregnancyStartDate.value);
+    let pregnancyAgeWeeks =
+      pregnancyAgeCalc.weeks + pregnancyAgeCalc.remainingDays / 7;
+    let trim = calcCurrentTrim(pregnancyAgeWeeks);
+    let urlPDF = "/assets/docs/M%C3%A9mo%20Trimestre-" + trim + ".pdf";
+    window.open(urlPDF, "_blank");
+  }
 });

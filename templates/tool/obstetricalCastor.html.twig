@@ -78,13 +78,13 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-12">
-                                    <label><strong>Date prévue d'accouchement</strong></label>
+                                    <label><strong>Date de début de grossesse</strong></label>
                                     <div class="input-group mb-3">
                                         <input type="date" class="form-control" name="pregnancyStartDate">
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-12">
-                                    <label><strong>Date de terme (41 SA)</strong></label>
+                                    <label><strong>Date prévue d'accouchement</strong></label>
                                     <div class="input-group mb-3">
                                         <input type="date" class="form-control" name="termDate">
                                     </div>
@@ -288,16 +288,20 @@
                                 <div class="col-12 mt-3">
                                     <ul>
                                         <li>
-                                            <a href="">
+                                            <a href="#" id="personnalCalendar">
                                                 Télécharger le calendrier de grossesse personnalisé
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="">
+                                            <a target="_blank"
+                                                href="https://rpvo.mlc-site.fr/wp-content/uploads/2024/03/Pour-un-meilleur-suivi-grossesse-version-memo_VF170723.pdf"
+                                                id="memo">
                                                 Télécharger votre fiche mémo
                                             </a>
                                         </li>
                                     </ul>
+                                    <img src="{{asset('assets/docs/Calendrier de grossesse.png')}}" alt=""
+                                        class="w-100">
                                     <h6>Pour faire votre déclaration :</h6>
                                     <ul style="list-style-type: none;">
                                         <li>
@@ -331,20 +335,16 @@
                             <div class="form-text" id="basic-addon4">
                                 <ul style="list-style-type: none;">
                                     <li>
-                                        <i>*Pour rappel, cette Roulette obstétricale est proposée à titre informatif
-                                            et
-                                            peut comporter des inexactitudes. Si vous avez le
-                                            moindre doute ou question vous devez consulter votre sage-femme.</i>
+                                        <i>*Pour rappel, cet outil est proposé à titre informatif
+                                            et peut comporter des inexactitudes. Si vous avez le
+                                            moindre doute ou question vous devez consulter votre sage-femme.
+                                        </i>
                                     </li>
                                 </ul>
                             </div>
                     </form>
                 </div>
-
             </div>
-
-
-
         </div>
     </section>
 
