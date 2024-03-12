@@ -3,10 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>{% block title %}RPVO{% endblock %}</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    {% block description %}{% endblock %}
+    {% block keywords %}{% endblock %}
+    {% block canonical%}{% endblock %}
+    <meta content="Le Marché de la Com'" name="author">
+
 
     <!-- Favicons -->
     <link href="{{asset('assets/img/logo_rpvo.jpeg')}}" rel="icon">

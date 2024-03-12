@@ -1,5 +1,15 @@
 {% extends "base.html.twig" %}
 {% block title %}Calendrier de grossesse personnalisé - RPVO{% endblock %}
+{% block description %}
+<meta name="description"
+    content="Vous êtes enceinte et souhaitez calculer votre terme de grossesse afin de connaitre la chronologie des examens obligatoires et recommandés ? Utilisez notre calculateur pour mieux visualiser les différentes étapes de votre grossesse.">
+{% endblock %}
+{% block keywords %}
+<meta name="keywords" content="calendrier, grossesse, Calendrier de grossesse, rpvo">
+{% endblock %}
+{% block canonical%}
+<link rel="canonical" href="{{ url(app.request.get('_route'), app.request.get('_route_params')) }}">
+{% endblock %}
 
 
 {% block body %}

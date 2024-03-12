@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ToolController extends AbstractController
 {
     #[Route('/', name: 'app_tool')]
-    public function index(Request $request): Response
+    public function index(): Response
     {
         return $this->redirect('https://rpvo.mlc-site.fr/outils-pratiques/');
     }
@@ -44,7 +44,7 @@ class ToolController extends AbstractController
     }
 
     #[Route('calendrier-de-grossesse-personnalise', name: 'app_tool_obstetricalCastor')]
-    public function obstetricalCastor(Request $request): Response
+    public function obstetricalCastor(): Response
     {
         return $this->render('tool/obstetricalCastor.html.twig');
     }

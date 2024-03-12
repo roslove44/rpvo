@@ -1,5 +1,15 @@
 {% extends "base.html.twig" %}
 {% block title %}Calculateur d'Âge réel ou corrigé pour les Prématurés{% endblock %}
+{% block description %}
+<meta name="description"
+    content="Cet outil permet de calculer l'écart entre l'âge corrigé (l'âge qu'il aurait s'il était né à terme) et l'âge réel (déterminé selon la date de naissance) de l'enfant né prématurément.">
+{% endblock %}
+{% block keywords %}
+<meta name="keywords" content="bébé, prématuré, bébé prématuré, âge réel, âge corrigé, rpvo">
+{% endblock %}
+{% block canonical%}
+<link rel="canonical" href="{{ url(app.request.get('_route'), app.request.get('_route_params')) }}">
+{% endblock %}
 
 
 {% block body %}
