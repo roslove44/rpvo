@@ -144,29 +144,29 @@ function calcPregnancyAge(lastMenstrualDate, specificDate = false) {
 
 function showGeneralCalendar(termDate, pregnancyStartDate, lastMenstrualDate) {
   generalCalendar.querySelector(
-    "tr:nth-child(1) > td:nth-child(2)"
+    "tr:nth-child(1) > td:nth-child(1)"
   ).textContent = longFormatDate(lastMenstrualDate);
   generalCalendar.querySelector(
-    "tr:nth-child(2) > td:nth-child(2)"
+    "tr:nth-child(2) > td:nth-child(1)"
   ).textContent = longFormatDate(pregnancyStartDate);
 
   generalCalendar.querySelector(
-    "tr:nth-child(3) > td:nth-child(2)"
+    "tr:nth-child(3) > td:nth-child(1)"
   ).textContent = longFormatDate(calcTermDate(lastMenstrualDate, 12));
   generalCalendar.querySelector(
-    "tr:nth-child(4) > td:nth-child(2)"
+    "tr:nth-child(4) > td:nth-child(1)"
   ).textContent = longFormatDate(calcTermDate(lastMenstrualDate, 15));
   generalCalendar.querySelector(
-    "tr:nth-child(5) > td:nth-child(2)"
+    "tr:nth-child(5) > td:nth-child(1)"
   ).textContent = longFormatDate(calcTermDate(lastMenstrualDate, 22));
   generalCalendar.querySelector(
-    "tr:nth-child(6) > td:nth-child(2)"
+    "tr:nth-child(6) > td:nth-child(1)"
   ).textContent = longFormatDate(calcTermDate(lastMenstrualDate, 32));
+  // generalCalendar.querySelector(
+  //   "tr:nth-child(7) > td:nth-child(1)"
+  // ).textContent = longFormatDate(calcTermDate(lastMenstrualDate, 41));
   generalCalendar.querySelector(
-    "tr:nth-child(7) > td:nth-child(2)"
-  ).textContent = longFormatDate(calcTermDate(lastMenstrualDate, 41));
-  generalCalendar.querySelector(
-    "tr:nth-child(8) > td:nth-child(2)"
+    "tr:nth-child(7) > td:nth-child(1)"
   ).textContent = longFormatDate(calcTermDate(pregnancyStartDate, 39, 1));
 }
 
