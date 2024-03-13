@@ -18,6 +18,7 @@ class ToolController extends AbstractController
     {
         return $this->redirect('https://rpvo.mlc-site.fr/outils-pratiques/');
     }
+
     #[Route('calculateur-age-reel-age-corrige-pour-prematures', name: 'app_tool_calculatorForPremature')]
     public function calculatorForPremature(Request $request, CalculatorForPrematureService $calcFPS): Response
     {
@@ -47,6 +48,12 @@ class ToolController extends AbstractController
     public function obstetricalCastor(): Response
     {
         return $this->render('tool/obstetricalCastor.html.twig');
+    }
+
+    #[Route('calculateur-de-grossesse', name: 'app_tool_pregnancyDate')]
+    public function pregnancyDate(): Response
+    {
+        return $this->render('tool/pregnancyDate.html.twig');
     }
 
     // #[Route('calendrier-de-grossesse', name: 'app_tool_PregnancyCalendar')]

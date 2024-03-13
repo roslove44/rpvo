@@ -1831,11 +1831,11 @@ section {
   font-size: 14px;
 }
 
-.contact .php-email-form input[type=text],
+/* .contact .php-email-form input[type=text],
 .contact .php-email-form input[type=email],
 .contact .php-email-form textarea {
   padding: 12px 15px;
-}
+} */
 
 .contact .php-email-form input[type=text]:focus,
 .contact .php-email-form input[type=email]:focus,
