@@ -42,7 +42,7 @@
 
     <section id="outils-guide" class="faq mt-4">
         <div class="container aos-init aos-animate" data-aos="fade-up">
-            <div class="section-header">
+            <div class="section-header mb-0 pb-2">
                 <h2>Calendrier de grossesse personnalisé</h2>
                 <p>
                     Vous êtes enceinte et souhaitez calculer votre terme de grossesse afin de connaitre la chronologie
@@ -52,7 +52,8 @@
                 </p>
             </div>
             <p>
-                <strong><i class="bi bi-lightbulb">Pensez également à télécharger votre fiche-mémo !</i></strong>
+                <strong><i class="bi bi-lightbulb" style="font-size: 28px;"></i>Pensez également à télécharger votre
+                    fiche-mémo !</strong>
             </p>
         </div>
         <div class="container aos-init aos-animate" data-aos="fade-up">
@@ -167,7 +168,7 @@
     <section id="outils" class="faq">
         <div class="container aos-init aos-animate" data-aos="fade-up">
 
-            <div class="row gy-4 contact">
+            <div class="row gy-2 contact">
 
                 <div class="col-lg-3">
                     <div class="content px-xl-5">
@@ -185,53 +186,46 @@
                             <div class="form-text" id="basic-addon4">
                                 <ul style="list-style-type: none;">
                                     <li>
-                                        <i>*Renseignez la date que vous connaissez</i>
+                                        <i>*Renseignez la date de vos dernières règles (DDR) ou la date du début de
+                                            grossesse (DDG)</i>
                                     </li>
                                 </ul>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-4 col-12">
-                                    <label><strong>Date des dernières règles</strong></label>
+                            <div class="row align-items-end">
+                                <div class="col-lg-3 col-12">
+                                    <label class="fw-bold">Date des dernières règles</label>
                                     <div class="input-group mb-3">
                                         <input type="date" class="form-control" name="lastMenstrualDate">
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-12">
-                                    <label><strong>Date de début de grossesse</strong></label>
+                                <div class="col-lg-3 col-12">
+                                    <label class="fw-bold">Date de début de grossesse</label>
                                     <div class="input-group mb-3">
                                         <input type="date" class="form-control" name="pregnancyStartDate">
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-12">
-                                    <label><strong>Date prévue d'accouchement</strong></label>
+                                <div class="col-lg-3 col-12">
+                                    <label class="fw-bold">
+                                        Votre âge gestationnel au
+                                        <span id="currentDate"></span>
+                                    </label>
                                     <div class="input-group mb-3">
-                                        <input type="date" class="form-control" name="termDate">
+                                        <input type="text" class="form-control fw-bold" name="currentTerm" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-12">
+                                    <label class="fw-bold">Date prévue d'accouchement</label>
+                                    <div class="input-group mb-3">
+                                        <input type="date" class="form-control fw-bold" name="termDate" disabled>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-12 ">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <strong><i>Dates importantes</i></strong>
-                                        </div>
-                                        <div class="card-body">
-                                            <div id="pregnancyAge" class="form-text">
-                                                <ul style="list-style-type: none;">
-                                                    <li class="text-capitalize text-bold"></li>
-                                                    <li class="text-capitalize"></li>
-                                                    <li class="text-capitalize"></li>
-                                                    <li class="text-capitalize"></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <div class="col-12 mt-2 aos-init aos-animate" data-aos="fade-up">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="card-header">
-                                                <strong><i>Calendrier général</i></strong>
+                                                <strong><i>Calendrier</i></strong>
                                             </div>
                                             <div class="card-text" style="font-size: 15px;color: #6c757d;">
                                                 <table class="table mt-2">
@@ -241,85 +235,194 @@
                                                             </th>
                                                             <th scope="col" class="text-center">
                                                             </th>
-                                                            <th scope="col" class="text-center">
-                                                            </th>
                                                         </tr>
                                                     </thead>
                                                     <tbody id="generalCalendar">
+                                                        {# Gestion des congés #}
                                                         <tr>
-                                                            <td class="form-text">
-                                                                Dernières règles
+                                                            <td class="form-text border-bottom-0">
+                                                                <div>
+                                                                    <h6 class="fw-bold">Congé maternité :</h6>
+                                                                    <div class="row align-items-center">
+                                                                        <div class="col-auto">Nombre d'enfants nés</div>
+                                                                        <div class="col-auto">
+                                                                            <input type="number" name="childrenNumber"
+                                                                                id="childrenNumber" class="form-control"
+                                                                                min="0" value="0">
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <span id="passwordHelpInline"
+                                                                                class="form-text">
+                                                                                <i>*Renseigner un nombre.</i>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row align-items-center">
+                                                                        <label class="col-auto"
+                                                                            for="twins">Jumeaux</label>
+                                                                        <div class="col-auto">
+                                                                            <input type="checkbox" name="twins"
+                                                                                id="twins" class="form-check-input">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row align-items-center">
+                                                                        <label class="col-auto" for="triplets">Triplés
+                                                                            ou plus
+                                                                            ?</label>
+                                                                        <div class="col-auto">
+                                                                            <input type="checkbox" name="triplets"
+                                                                                id="triplets" class="form-check-input">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </td>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
-                                                            </td>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
+                                                            <td class="form-text border-bottom-0"
+                                                                style="background-color: #f2f2f2;min-width: 150px;">
+                                                                <div class="d-flex flex-column justify-content-center">
+                                                                    <span id="maternityVacationField"></span>
+                                                                </div>
                                                             </td>
                                                         </tr>
                                                         <tr>
                                                             <td class="form-text">
-                                                                Début de grossesse
+                                                                <div>
+                                                                    <h6 class="fw-bold mt-2">Début du congé prénatal :
+                                                                    </h6>
+                                                                    <ul>
+                                                                        <li>
+                                                                            <i>
+                                                                                <strong>Remarque</strong> : On part du
+                                                                                principe que la grossesse est simple
+                                                                                pour le calcul des dates. Si jumeaux et
+                                                                                plus, veuillez cocher et le calcul sera
+                                                                                modifié.
+                                                                            </i>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
                                                             </td>
                                                             <td class="form-text" style="background-color: #f2f2f2;">
-                                                            </td>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
+                                                                <div class="d-flex flex-column justify-content-center">
+                                                                    <span id="prenatalVacationField"></span>
+                                                                </div>
                                                             </td>
                                                         </tr>
-                                                        <tr>
+                                                        {# End Gestion des congés #}
+
+                                                        <tr data-preg-calc="{15, before}">
                                                             <td class="form-text">
-                                                                12 SA
+                                                                Consultation 3ème mois
+                                                                <br>
+                                                                À faire avant 15 SA
                                                             </td>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
-                                                            </td>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
-                                                                1ère échographie
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td class="form-text">
-                                                                15 SA
-                                                            </td>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
-                                                            </td>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
-                                                                Déclaration de la grossesse
+                                                        <tr data-preg-calc="{15, before}">
+                                                            <td class="form-text">Déclaration grossesse <br>À faire
+                                                                avant 15 SA</td>
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td class="form-text">
-                                                                22 SA
-                                                            </td>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
-                                                            </td>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
-                                                                2e échographie
+                                                        <tr data-preg-calc="{11,13}">
+                                                            <td class="form-text">1ère échographie <br>À faire entre
+                                                                11-13 SA</td>
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td class="form-text">
-                                                                32 SA
-                                                            </td>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
-                                                            </td>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
-                                                                3e échographie
+                                                        {# #}
+                                                        <tr data-preg-calc="{11,13}">
+                                                            <td class="form-text">Dépistage de la Trisomie 21 <br>À
+                                                                faire entre 11 et 13SA</td>
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
                                                             </td>
                                                         </tr>
-                                                        {# <tr>
-                                                            <td class="form-text">
+                                                        <tr data-preg-calc="{15, after}">
+                                                            <td class="form-text">Entretien Prénatal Précoce
+                                                                <br>À partir de 15 SA
                                                             </td>
-                                                            <td class="form-text">
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
                                                             </td>
-                                                            <td class="form-text">
-                                                                Terme- 41 SA
+                                                        </tr>
+                                                        <tr data-preg-calc="{15,20}">
+                                                            <td class="form-text">Consultation 4ème mois
+                                                                <br>À faire entre 15-20 SA
                                                             </td>
-                                                        </tr> #}
-                                                        <tr>
-                                                            <td class="form-text">
-                                                                Terme - 9 mois
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
                                                             </td>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
+                                                        </tr>
+                                                        <tr data-preg-calc="{22,24}">
+                                                            <td class="form-text">2ème échographie
+                                                                <br>À faire entre 22-24 SA
                                                             </td>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-preg-calc="{20,24}">
+                                                            <td class="form-text">Consultation 5ème mois
+                                                                <br>À faire entre 20-24 SA
+                                                            </td>
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-preg-calc="{24,28}">
+                                                            <td class="form-text">Consultation 6ème mois
+                                                                <br>À faire entre 24-28 SA
+                                                            </td>
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-preg-calc="{28, after}">
+                                                            <td class="form-text">Préparation à la naissance
+                                                                <br>À partir de 28 SA
+                                                            </td>
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-preg-calc="{28,32}">
+                                                            <td class="form-text">Consultation 7ème mois <br>À faire
+                                                                entre 28-32 SA</td>
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-preg-calc="{32,35}">
+                                                            <td class="form-text">3ème échographie <br>À faire entre
+                                                                32-35 SA</td>
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-preg-calc="{32,37}">
+                                                            <td class="form-text">Consultation 8ème mois <br>À faire
+                                                                entre 32-37 SA</td>
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-preg-calc="{37,41}">
+                                                            <td class="form-text">Consultation 9ème mois
+                                                                <br>À faire entre
+                                                                37-41 SA
+                                                            </td>
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-preg-calc="{32,41}">
+                                                            <td class="form-text">Consultation d'anesthésie <br>À faire
+                                                                entre 32-41 SA</td>
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -328,7 +431,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 mt-2 aos-init aos-animate" data-aos="fade-up">
+
+                                {# Sauvegarde Calendrier Spécifique #}
+                                {# <div class="col-12 mt-2 aos-init aos-animate" data-aos="fade-up">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="card-header">
@@ -366,14 +471,6 @@
                                                                 T21 : dépistage 2e trimestre : 14 → 17+6 SA
                                                             </option>
                                                         </optgroup>
-                                                        {# <optgroup label="IVG">
-                                                            <option value="IVGMed">Période légale IVG médicamenteuse
-                                                                (4
-                                                                → 9 SA)</option>
-                                                            <option value="IVGChir">Période légale IVG chirurgicale
-                                                                (4 →
-                                                                16 SA)</option>
-                                                        </optgroup> #}
                                                     </select>
                                                 </div>
                                                 <strong>
@@ -382,7 +479,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> #}
+                                {# Sauvegarde Calendrier Spécifique #}
+
 
                                 <div class="col-12 mt-2 aos-init aos-animate" data-aos="fade-up">
                                     <div class="card">
@@ -408,7 +507,7 @@
                                     <ul>
                                         <li>
                                             <a href="#" id="personnalCalendar">
-                                                <strong>Télécharger le calendrier de grossesse personnalisé</strong>
+                                                <strong>Télécharger le calendrier personnalisé</strong>
                                             </a>
                                         </li>
                                         <li>
@@ -419,23 +518,20 @@
                                             </a>
                                         </li>
                                     </ul>
-                                    <img src="{{asset('assets/docs/Calendrier de grossesse.png')}}" alt=""
-                                        class="w-100">
                                     <h6>Pour faire votre déclaration :</h6>
-                                    <ul style="list-style-type: none;">
-                                        <li>
-                                            <a target="_blank"
-                                                href="https://www.ameli.fr/val-d-oise/assure/droits-demarches/famille/maternite-paternite-adoption/grossesse">
-                                                https://www.ameli.fr/val-d-oise/assure/droits-demarches/famille/maternite-paternite-adoption/grossesse
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a target="_blank"
-                                                href="https://www.caf.fr/allocataires/aides-et-demarches/ma-situation/vie-personnelle/j-attends-un-enfant">
-                                                https://www.caf.fr/allocataires/aides-et-demarches/ma-situation/vie-personnelle/j-attends-un-enfant
-                                            </a>
-                                        </li>
-                                    </ul>
+                                    <div>
+
+                                        <a target="_blank" class="btn buy-btn mt-3 px-4"
+                                            href="https://www.ameli.fr/val-d-oise/assure/droits-demarches/famille/maternite-paternite-adoption/grossesse">
+                                            Ameli
+                                        </a>
+
+
+                                        <a target="_blank" class="btn buy-btn mt-3 px-4"
+                                            href="https://www.caf.fr/allocataires/aides-et-demarches/ma-situation/vie-personnelle/j-attends-un-enfant">
+                                            Caf
+                                        </a>
+                                    </div>
                                 </div>
 
                                 <div class="col-12 d-flex align-items-center justify-content-around">
@@ -492,6 +588,12 @@
         #outils * {
             visibility: visible;
             font-size: 12px;
+        }
+
+        #outils {
+            size: A4;
+            margin: 0;
+            width: 100%;
         }
 
         tr {
