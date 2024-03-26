@@ -7,9 +7,17 @@ const options = {
   month: "long",
   day: "numeric",
 };
+document.getElementById("currentDate").textContent =
+  new Date().toLocaleDateString();
 // End Global Data
 
 // Base data
+let Calendar = document.querySelectorAll("[data-preg-calc]");
+let vacancesChildren = document.querySelector("#childrenNumber");
+let vacancesTwins = document.querySelector("#twins");
+let vacancesTriplets = document.querySelector("#triplets");
+let maternityVacationField = document.querySelector("#maternityVacationField");
+let prenatalVacationField = document.querySelector("#prenatalVacationField");
 let lastMenstrualDate = document.querySelector(
   "input[name='lastMenstrualDate']"
 );
@@ -17,15 +25,8 @@ let pregnancyStartDate = document.querySelector(
   "input[name='pregnancyStartDate']"
 );
 let termDate = document.querySelector("input[name='termDate']");
-const pregnancyAge = document.querySelector("#pregnancyAge");
+let currentDateTerm = document.querySelector("input[name='currentTerm']");
 let generalCalendar = document.querySelector("#generalCalendar");
-let vacationType = document.querySelector("#vacationType");
-let result_vacaionType = document.querySelector("#result_vacaionType");
-let specificDateField = document.querySelector(
-  "input[name='specificDateField']"
-);
-let result_specificDate = document.querySelector("#result_specificDate");
-let personnalCalendar = document.querySelector("#personnalCalendar");
 let memo = document.querySelector("#memo");
 // End Base data
 
@@ -107,19 +108,8 @@ function longFormatDate(date) {
 }
 
 function showImportantDate(termDate, pregnancyStartDate, lastMenstrualDate) {
-  pregnancyAge.querySelector("ul > li:nth-child(4)").textContent =
-    "Date prévue pour l'accouchement ( terme 41 SA) : " +
-    new Date(termDate).toLocaleDateString("fr-FR", options);
-  pregnancyAge.querySelector("ul > li:nth-child(3)").textContent =
-    "Date de début de grossesse : " +
-    new Date(pregnancyStartDate).toLocaleDateString("fr-FR", options);
-  pregnancyAge.querySelector("ul > li:nth-child(2)").textContent =
-    "Date des dernières règles : " +
-    new Date(lastMenstrualDate).toLocaleDateString("fr-FR", options);
-
   let age = calcPregnancyAge(lastMenstrualDate);
-  pregnancyAge.querySelector("ul > li:nth-child(1)").textContent =
-    "Terme ce jour : " + age.weeks + " SA " + age.remainingDays + " J ";
+  currentDateTerm.value = age.weeks + " SA " + age.remainingDays + " J ";
 }
 
 function calcPregnancyAge(lastMenstrualDate, specificDate = false) {
@@ -145,31 +135,32 @@ function calcPregnancyAge(lastMenstrualDate, specificDate = false) {
 }
 
 function showGeneralCalendar(termDate, pregnancyStartDate, lastMenstrualDate) {
-  generalCalendar.querySelector(
-    "tr:nth-child(1) > td:nth-child(2)"
-  ).textContent = longFormatDate(lastMenstrualDate);
-  generalCalendar.querySelector(
-    "tr:nth-child(2) > td:nth-child(2)"
-  ).textContent = longFormatDate(pregnancyStartDate);
-
-  generalCalendar.querySelector(
-    "tr:nth-child(3) > td:nth-child(2)"
-  ).textContent = longFormatDate(calcTermDate(lastMenstrualDate, 12));
-  generalCalendar.querySelector(
-    "tr:nth-child(4) > td:nth-child(2)"
-  ).textContent = longFormatDate(calcTermDate(lastMenstrualDate, 15));
-  generalCalendar.querySelector(
-    "tr:nth-child(5) > td:nth-child(2)"
-  ).textContent = longFormatDate(calcTermDate(lastMenstrualDate, 22));
-  generalCalendar.querySelector(
-    "tr:nth-child(6) > td:nth-child(2)"
-  ).textContent = longFormatDate(calcTermDate(lastMenstrualDate, 32));
-  // generalCalendar.querySelector(
-  //   "tr:nth-child(7) > td:nth-child(2)"
-  // ).textContent = longFormatDate(calcTermDate(lastMenstrualDate, 41));
-  generalCalendar.querySelector(
-    "tr:nth-child(7) > td:nth-child(2)"
-  ).textContent = longFormatDate(calcTermDate(pregnancyStartDate, 39, 1));
+  Calendar.forEach((element) => {
+    const value = element
+      .getAttribute("data-preg-calc")
+      .replaceAll("{", "")
+      .replaceAll("}", "")
+      .trim()
+      .split(",");
+    if (value.length === 2) {
+      const state = value[1].trim().toLowerCase();
+      if (state === "before") {
+        element.querySelector("td:nth-child(2)").textContent =
+          "Avant le " +
+          longFormatDate(calcTermDate(lastMenstrualDate, value[0]));
+      } else if (state === "after") {
+        element.querySelector("td:nth-child(2)").textContent =
+          "À partir du " +
+          longFormatDate(calcTermDate(lastMenstrualDate, value[0]));
+      } else {
+        element.querySelector("td:nth-child(2)").innerHTML =
+          "Entre le " +
+          longFormatDate(calcTermDate(lastMenstrualDate, value[0])) +
+          " et le " +
+          longFormatDate(calcTermDate(lastMenstrualDate, value[1]));
+      }
+    }
+  });
 }
 
 function printCalendar(e) {
@@ -191,6 +182,71 @@ function calcCurrentTrim(pregnancyAgeWeeks) {
   }
 }
 
+function calcVacationDates(
+  lastMenstrualDate,
+  vacancesChildren,
+  vacancesTriplets,
+  vacancesTwins,
+  maternityVacationField,
+  prenatalVacationField
+) {
+  if (
+    vacancesChildren.value <= 1 &&
+    !vacancesTwins.checked &&
+    !vacancesTriplets.checked
+  ) {
+    maternityVacationField.textContent =
+      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, -42)) +
+      " au " +
+      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 70)) +
+      " (jour de reprise) ";
+    prenatalVacationField.textContent =
+      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, -42)) +
+      " au " +
+      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 0));
+  }
+
+  if (
+    vacancesChildren.value >= 2 &&
+    !vacancesTwins.checked &&
+    !vacancesTriplets.checked
+  ) {
+    maternityVacationField.textContent =
+      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, -56)) +
+      " au " +
+      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 126)) +
+      " (jour de reprise) ";
+    prenatalVacationField.textContent =
+      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, -56)) +
+      " au " +
+      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 0));
+  }
+
+  if (vacancesTwins.checked) {
+    maternityVacationField.textContent =
+      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, -84)) +
+      " au " +
+      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 154)) +
+      " (jour de reprise) ";
+    prenatalVacationField.textContent =
+      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, -84)) +
+      " au " +
+      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 0));
+  }
+
+  if (vacancesTriplets.checked) {
+    maternityVacationField.textContent =
+      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, -168)) +
+      " au " +
+      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 154)) +
+      " (jour de reprise) ";
+    prenatalVacationField.textContent =
+      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, -168)) +
+      " au " +
+      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 0));
+  }
+}
+
 // Attacher la fonction calculateDates à l'événement de changement de lastMenstrualDate
 lastMenstrualDate.addEventListener("change", function (event) {
   let result = calculateDatesByLastMenstrualDate(lastMenstrualDate);
@@ -205,6 +261,14 @@ lastMenstrualDate.addEventListener("change", function (event) {
     termDate.value,
     pregnancyStartDate.value,
     lastMenstrualDate.value
+  );
+  calcVacationDates(
+    lastMenstrualDate,
+    vacancesChildren,
+    vacancesTriplets,
+    vacancesTwins,
+    maternityVacationField,
+    prenatalVacationField
   );
 });
 
@@ -222,104 +286,14 @@ pregnancyStartDate.addEventListener("change", function (event) {
     pregnancyStartDate.value,
     lastMenstrualDate.value
   );
-});
-
-termDate.addEventListener("change", function (event) {
-  let result = calculateDatesByTermDate(termDate);
-  lastMenstrualDate.value = result.lastMenstrualDate;
-  pregnancyStartDate.value = result.pregnancyStartDate;
-  showImportantDate(
-    termDate.value,
-    pregnancyStartDate.value,
-    lastMenstrualDate.value
+  calcVacationDates(
+    lastMenstrualDate,
+    vacancesChildren,
+    vacancesTriplets,
+    vacancesTwins,
+    maternityVacationField,
+    prenatalVacationField
   );
-  showGeneralCalendar(
-    termDate.value,
-    pregnancyStartDate.value,
-    lastMenstrualDate.value
-  );
-});
-
-vacationType.addEventListener("change", function (event) {
-  if (lastMenstrualDate.value == "") {
-    result_vacaionType.textContent = "";
-    alert("*Renseignez au moins une date que vous connaissez");
-    return;
-  }
-  let vacationTypeValue = vacationType.value;
-  if (vacationTypeValue == "G1") {
-    result_vacaionType.textContent =
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, -42)) +
-      " au " +
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 70)) +
-      " (jour de reprise) ";
-  }
-  if (vacationTypeValue == "G1E") {
-    result_vacaionType.textContent =
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, -56)) +
-      " au " +
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 126)) +
-      " (jour de reprise) ";
-  }
-  if (vacationTypeValue == "G2") {
-    result_vacaionType.textContent =
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, -84)) +
-      " au " +
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 154)) +
-      " (jour de reprise) ";
-  }
-  if (vacationTypeValue == "G3") {
-    result_vacaionType.textContent =
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, -168)) +
-      " au " +
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 154)) +
-      " (jour de reprise) ";
-  }
-
-  if (vacationTypeValue == "T21COMBI") {
-    result_vacaionType.textContent =
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 0, 11 * 7)) +
-      " au " +
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 0, 14 * 7 - 1));
-  }
-  if (vacationTypeValue == "T212TRI") {
-    result_vacaionType.textContent =
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 0, 14 * 7)) +
-      " au " +
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 0, 18 * 7 - 1));
-  }
-  if (vacationTypeValue == "IVGMed") {
-    result_vacaionType.textContent =
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 0, 4 * 7)) +
-      " au " +
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 0, 9 * 7));
-  }
-  if (vacationTypeValue == "IVGChir") {
-    result_vacaionType.textContent = result_vacaionType.textContent =
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 0, 4 * 7)) +
-      " au " +
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 0, 16 * 7));
-  }
-});
-
-specificDateField.addEventListener("change", function (event) {
-  if (lastMenstrualDate.value == "") {
-    result_specificDate.textContent = "";
-    alert("*Renseignez au moins une date que vous connaissez");
-    return;
-  }
-  let result_specific = calcPregnancyAge(
-    lastMenstrualDate.value,
-    specificDateField.value
-  );
-  result_specificDate.textContent =
-    "Terme pour " +
-    longFormatDate(specificDateField.value) +
-    " : " +
-    result_specific.weeks +
-    " SA " +
-    result_specific.remainingDays +
-    " J ";
 });
 
 personnalCalendar.addEventListener("click", function (event) {
@@ -331,8 +305,152 @@ personnalCalendar.addEventListener("click", function (event) {
     let pregnancyAgeCalc = calcPregnancyAge(pregnancyStartDate.value);
     let pregnancyAgeWeeks =
       pregnancyAgeCalc.weeks + pregnancyAgeCalc.remainingDays / 7;
+    console.log(pregnancyAgeCalc);
     let trim = calcCurrentTrim(pregnancyAgeWeeks);
     let urlPDF = "/assets/docs/M%C3%A9mo%20Trimestre-" + trim + ".pdf";
     window.open(urlPDF, "_blank");
   }
 });
+
+vacancesChildren.addEventListener("click", function (event) {
+  if (lastMenstrualDate.value == "") {
+    result_vacaionType.textContent = "";
+    alert("*Renseignez au moins une date que vous connaissez");
+    return;
+  }
+  calcVacationDates(
+    lastMenstrualDate,
+    vacancesChildren,
+    vacancesTriplets,
+    vacancesTwins,
+    maternityVacationField,
+    prenatalVacationField
+  );
+});
+
+vacancesTriplets.addEventListener("click", function (event) {
+  if (lastMenstrualDate.value == "") {
+    result_vacaionType.textContent = "";
+    alert("*Renseignez au moins une date que vous connaissez");
+    return;
+  }
+  if (vacancesTriplets.checked) {
+    vacancesTwins.checked = false;
+  }
+  calcVacationDates(
+    lastMenstrualDate,
+    vacancesChildren,
+    vacancesTriplets,
+    vacancesTwins,
+    maternityVacationField,
+    prenatalVacationField
+  );
+});
+
+vacancesTwins.addEventListener("click", function (event) {
+  if (lastMenstrualDate.value == "") {
+    result_vacaionType.textContent = "";
+    alert("*Renseignez au moins une date que vous connaissez");
+    return;
+  }
+  if (vacancesTwins.checked) {
+    vacancesTriplets.checked = false;
+  }
+  calcVacationDates(
+    lastMenstrualDate,
+    vacancesChildren,
+    vacancesTriplets,
+    vacancesTwins,
+    maternityVacationField,
+    prenatalVacationField
+  );
+});
+
+// Sauvegarde
+// let vacationType = document.querySelector("#vacationType");
+// let result_vacaionType = document.querySelector("#result_vacaionType");
+// let specificDateField = document.querySelector(
+//   "input[name='specificDateField']"
+// );
+// let result_specificDate = document.querySelector("#result_specificDate");
+// let personnalCalendar = document.querySelector("#personnalCalendar");
+// vacationType.addEventListener("change", function (event) {
+//   if (lastMenstrualDate.value == "") {
+//     result_vacaionType.textContent = "";
+//     alert("*Renseignez au moins une date que vous connaissez");
+//     return;
+//   }
+//   let vacationTypeValue = vacationType.value;
+//   if (vacationTypeValue == "G1") {
+//     result_vacaionType.textContent =
+//       longFormatDate(calcTermDate(lastMenstrualDate.value, 41, -42)) +
+//       " au " +
+//       longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 70)) +
+//       " (jour de reprise) ";
+//   }
+//   if (vacationTypeValue == "G1E") {
+//     result_vacaionType.textContent =
+//       longFormatDate(calcTermDate(lastMenstrualDate.value, 41, -56)) +
+//       " au " +
+//       longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 126)) +
+//       " (jour de reprise) ";
+//   }
+//   if (vacationTypeValue == "G2") {
+//     result_vacaionType.textContent =
+//       longFormatDate(calcTermDate(lastMenstrualDate.value, 41, -84)) +
+//       " au " +
+//       longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 154)) +
+//       " (jour de reprise) ";
+//   }
+//   if (vacationTypeValue == "G3") {
+//     result_vacaionType.textContent =
+//       longFormatDate(calcTermDate(lastMenstrualDate.value, 41, -168)) +
+//       " au " +
+//       longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 154)) +
+//       " (jour de reprise) ";
+//   }
+
+//   if (vacationTypeValue == "T21COMBI") {
+//     result_vacaionType.textContent =
+//       longFormatDate(calcTermDate(lastMenstrualDate.value, 0, 11 * 7)) +
+//       " au " +
+//       longFormatDate(calcTermDate(lastMenstrualDate.value, 0, 14 * 7 - 1));
+//   }
+//   if (vacationTypeValue == "T212TRI") {
+//     result_vacaionType.textContent =
+//       longFormatDate(calcTermDate(lastMenstrualDate.value, 0, 14 * 7)) +
+//       " au " +
+//       longFormatDate(calcTermDate(lastMenstrualDate.value, 0, 18 * 7 - 1));
+//   }
+//   if (vacationTypeValue == "IVGMed") {
+//     result_vacaionType.textContent =
+//       longFormatDate(calcTermDate(lastMenstrualDate.value, 0, 4 * 7)) +
+//       " au " +
+//       longFormatDate(calcTermDate(lastMenstrualDate.value, 0, 9 * 7));
+//   }
+//   if (vacationTypeValue == "IVGChir") {
+//     result_vacaionType.textContent = result_vacaionType.textContent =
+//       longFormatDate(calcTermDate(lastMenstrualDate.value, 0, 4 * 7)) +
+//       " au " +
+//       longFormatDate(calcTermDate(lastMenstrualDate.value, 0, 16 * 7));
+//   }
+// });
+// specificDateField.addEventListener("change", function (event) {
+//   if (lastMenstrualDate.value == "") {
+//     result_specificDate.textContent = "";
+//     alert("*Renseignez au moins une date que vous connaissez");
+//     return;
+//   }
+//   let result_specific = calcPregnancyAge(
+//     lastMenstrualDate.value,
+//     specificDateField.value
+//   );
+//   result_specificDate.textContent =
+//     "Terme pour " +
+//     longFormatDate(specificDateField.value) +
+//     " : " +
+//     result_specific.weeks +
+//     " SA " +
+//     result_specific.remainingDays +
+//     " J ";
+// });

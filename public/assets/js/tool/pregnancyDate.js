@@ -7,17 +7,21 @@ const options = {
   month: "long",
   day: "numeric",
 };
+const today = new Date().toISOString().split("T")[0];
 // End Global Data
 
 // Base data
 let lastMenstrualDate = document.querySelector(
   "input[name='lastMenstrualDate']"
 );
+lastMenstrualDate.setAttribute("max", today);
 let pregnancyStartDate = document.querySelector(
   "input[name='pregnancyStartDate']"
 );
+pregnancyStartDate.setAttribute("max", today);
 let termDate = document.querySelector("input[name='termDate']");
 let termValue = document.querySelector("input[name='currentTerm']");
+termValue.setAttribute("max", today);
 const pregnancyAge = document.querySelector("#pregnancyAge");
 let generalCalendar = document.querySelector("#generalCalendar");
 let vacationType = document.querySelector("#vacationType");
@@ -113,19 +117,7 @@ function showImportantDate(
   lastMenstrualDate,
   termValue
 ) {
-  pregnancyAge.querySelector("ul > li:nth-child(4)").textContent =
-    "Date prévue pour l'accouchement ( terme 41 SA) : " +
-    new Date(termDate).toLocaleDateString("fr-FR", options);
-  pregnancyAge.querySelector("ul > li:nth-child(3)").textContent =
-    "Date de début de grossesse : " +
-    new Date(pregnancyStartDate).toLocaleDateString("fr-FR", options);
-  pregnancyAge.querySelector("ul > li:nth-child(2)").textContent =
-    "Date des dernières règles : " +
-    new Date(lastMenstrualDate).toLocaleDateString("fr-FR", options);
-
   let age = calcPregnancyAge(lastMenstrualDate);
-  pregnancyAge.querySelector("ul > li:nth-child(1)").textContent =
-    "Terme ce jour : " + age.weeks + " SA " + age.remainingDays + " J ";
   termValue.value = age.weeks + " SA " + age.remainingDays + " J ";
 }
 
