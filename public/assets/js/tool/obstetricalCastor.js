@@ -303,8 +303,12 @@ lastMenstrualDate.addEventListener("change", function (event) {
     let infoForRestTrim = document.querySelectorAll(researchFormRestTrim);
 
     infoForTrim.forEach((element) => {
-      element.querySelector("td:nth-child(1) span").classList.add("fw-bold");
-      element.querySelector("td:nth-child(2)").classList.add("fw-bold");
+      element
+        .querySelector("td:nth-child(1) span")
+        .classList.add("fw-bold", "important-line");
+      element
+        .querySelector("td:nth-child(2)")
+        .classList.add("fw-bold", "important-line");
     });
     infoForRestTrim.forEach((element) => {
       element.querySelector("td:nth-child(1) span").classList.remove("fw-bold");

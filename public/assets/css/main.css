@@ -26,6 +26,10 @@ body {
   overflow-x: hidden;
 }
 
+.important-line {
+  color: var(--color-primary) !important;
+}
+
 a {
   color: var(--color-primary);
   text-decoration: none;
