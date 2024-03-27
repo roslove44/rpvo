@@ -247,6 +247,23 @@ function calcVacationDates(
   }
 }
 
+function isValidDateFormat(dateString) {
+  const regex = /^\d{4}-\d{2}-\d{2}$/;
+  if (dateString.match(regex) === null) {
+    return false; // Le format n'est pas valide
+  }
+
+  // Essayer de construire un objet Date à partir de la chaîne
+  const date = new Date(dateString);
+  const timestamp = date.getTime();
+
+  if (typeof timestamp !== "number" || Number.isNaN(timestamp)) {
+    return false; // La chaîne n'est pas une date valide
+  }
+
+  return date.toISOString().startsWith(dateString);
+}
+
 // Attacher la fonction calculateDates à l'événement de changement de lastMenstrualDate
 lastMenstrualDate.addEventListener("change", function (event) {
   let result = calculateDatesByLastMenstrualDate(lastMenstrualDate);
@@ -270,6 +287,36 @@ lastMenstrualDate.addEventListener("change", function (event) {
     maternityVacationField,
     prenatalVacationField
   );
+  if (isValidDateFormat(pregnancyStartDate.value)) {
+    let pregnancyAgeCalc = calcPregnancyAge(pregnancyStartDate.value);
+    let pregnancyAgeWeeks =
+      pregnancyAgeCalc.weeks + pregnancyAgeCalc.remainingDays / 7;
+
+    let trim = calcCurrentTrim(pregnancyAgeWeeks);
+    let researchTrim = ".trim-" + trim;
+    let infoForTrim = document.querySelectorAll(researchTrim);
+
+    let restTrim = [1, 2, 3];
+    restTrim = restTrim.filter((valeur) => valeur !== trim);
+    let researchFormRestTrim =
+      ".trim-" + restTrim[0] + ", " + ".trim-" + restTrim[1];
+    let infoForRestTrim = document.querySelectorAll(researchFormRestTrim);
+
+    infoForTrim.forEach((element) => {
+      element.querySelector("td:nth-child(1) span").classList.add("fw-bold");
+      element.querySelector("td:nth-child(2)").classList.add("fw-bold");
+    });
+    infoForRestTrim.forEach((element) => {
+      element.querySelector("td:nth-child(1) span").classList.remove("fw-bold");
+      element.querySelector("td:nth-child(2)").classList.remove("fw-bold");
+    });
+  } else {
+    let infoForAllTrim = document.querySelectorAll("trim-1, trim-2, trim-3");
+    infoForAllTrim.forEach((element) => {
+      element.querySelector("td:nth-child(1) span").classList.remove("fw-bold");
+      element.querySelector("td:nth-child(2)").classList.remove("fw-bold");
+    });
+  }
 });
 
 pregnancyStartDate.addEventListener("change", function (event) {
@@ -305,7 +352,6 @@ personnalCalendar.addEventListener("click", function (event) {
     let pregnancyAgeCalc = calcPregnancyAge(pregnancyStartDate.value);
     let pregnancyAgeWeeks =
       pregnancyAgeCalc.weeks + pregnancyAgeCalc.remainingDays / 7;
-    console.log(pregnancyAgeCalc);
     let trim = calcCurrentTrim(pregnancyAgeWeeks);
     let urlPDF = "/assets/docs/M%C3%A9mo%20Trimestre-" + trim + ".pdf";
     window.open(urlPDF, "_blank");
