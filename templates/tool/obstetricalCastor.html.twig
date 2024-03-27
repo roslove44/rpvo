@@ -536,7 +536,10 @@
                                 <div class="col-12 mt-3">
                                     <ul>
                                         <li>
-                                            <a href="#" id="personnalCalendar">
+                                            {# <a href="#" id="personnalCalendar">
+                                                <strong>Télécharger le calendrier personnalisé</strong>
+                                            </a> #}
+                                            <a href="#" onclick="printCalendar(event)">
                                                 <strong>Télécharger le calendrier personnalisé</strong>
                                             </a>
                                         </li>
@@ -570,11 +573,11 @@
                                         Réinitialiser
                                     </a>
 
-                                    <a href="" class="btn mt-3" style="background-color:#f2f2f2;" id="print"
-                                        onclick="printCalendar(event)">
+                                    {# <a href="" class="btn mt-3" style="background-color:#f2f2f2;" id="print"
+                                        onclick="printCalendar()">
                                         <i class="bi bi-printer"></i>
                                         Imprimer
-                                    </a>
+                                    </a> #}
                                 </div>
                             </div>
                             <div class="form-text" id="basic-addon4">
