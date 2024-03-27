@@ -311,14 +311,22 @@ lastMenstrualDate.addEventListener("change", function (event) {
         .classList.add("fw-bold", "important-line");
     });
     infoForRestTrim.forEach((element) => {
-      element.querySelector("td:nth-child(1) span").classList.remove("fw-bold");
-      element.querySelector("td:nth-child(2)").classList.remove("fw-bold");
+      element
+        .querySelector("td:nth-child(1) span")
+        .classList.remove("fw-bold", "important-line");
+      element
+        .querySelector("td:nth-child(2)")
+        .classList.remove("fw-bold", "important-line");
     });
   } else {
     let infoForAllTrim = document.querySelectorAll("trim-1, trim-2, trim-3");
     infoForAllTrim.forEach((element) => {
-      element.querySelector("td:nth-child(1) span").classList.remove("fw-bold");
-      element.querySelector("td:nth-child(2)").classList.remove("fw-bold");
+      element
+        .querySelector("td:nth-child(1) span")
+        .classList.remove("fw-bold", "important-line");
+      element
+        .querySelector("td:nth-child(2)")
+        .classList.remove("fw-bold", "important-line");
     });
   }
 });
