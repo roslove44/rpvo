@@ -45,7 +45,7 @@
             <div class="section-header mb-0 pb-2">
                 <h2>Calendrier de grossesse personnalisé</h2>
                 <p>
-                    Vous êtes enceinte et souhaitez calculer votre terme de grossesse afin de connaitre la chronologie
+                    Vous êtes enceinte et souhaitez calculer votre terme de grossesse afin de connaître la chronologie
                     des examens obligatoires et recommandés ? Utilisez notre calculateur pour mieux visualiser les
                     différentes étapes de votre grossesse.
                     <br>
@@ -192,32 +192,60 @@
                                 </ul>
                             </div>
                             <div class="row align-items-end">
-                                <div class="col-lg-3 col-12">
-                                    <label class="fw-bold">Date des dernières règles</label>
-                                    <div class="input-group mb-3">
-                                        <input type="date" class="form-control" name="lastMenstrualDate">
-                                    </div>
+                                <div class="col-lg-6 pr-lg-0">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="text-center text-uppercase"
+                                                    style="background-color: var(--color-primary); color:#f2f2f2;">
+                                                    Date des dernières règles
+                                                </th>
+                                                <th scope="col" class="text-center text-uppercase"
+                                                    style="background-color: var(--color-primary);color:#f2f2f2;">
+                                                    Date de début de grossesse
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center" style="background-color: #f2f2f2;">
+                                                    <input type="date" class="form-control" name="lastMenstrualDate">
+                                                </td>
+                                                <td class="text-center" style="background-color: #f2f2f2;">
+                                                    <input type="date" class="form-control" name="pregnancyStartDate">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                                <div class="col-lg-3 col-12">
-                                    <label class="fw-bold">Date de début de grossesse</label>
-                                    <div class="input-group mb-3">
-                                        <input type="date" class="form-control" name="pregnancyStartDate">
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-12">
-                                    <label class="fw-bold">
-                                        Votre âge gestationnel au
-                                        <span id="currentDate"></span>
-                                    </label>
-                                    <div class="input-group mb-3">
-                                        <input type="text" class="form-control fw-bold" name="currentTerm" disabled>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-12">
-                                    <label class="fw-bold">Date prévue d'accouchement</label>
-                                    <div class="input-group mb-3">
-                                        <input type="date" class="form-control fw-bold" name="termDate" disabled>
-                                    </div>
+
+                                <div class="col-lg-6 pl-lg-0">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="text-center text-uppercase"
+                                                    style="background-color: var(--color-primary); color:#f2f2f2;">
+                                                    Votre âge gestationnel au <span id="currentDate"></span>
+                                                </th>
+                                                <th scope="col" class="text-center text-uppercase"
+                                                    style="background-color: var(--color-primary);color:#f2f2f2;">
+                                                    Date prévue d'accouchement
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center" style="background-color: #f2f2f2;">
+                                                    <input type="text" class="form-control fw-bold" name="currentTerm"
+                                                        disabled>
+                                                </td>
+                                                <td class="text-center" style="background-color: #f2f2f2;">
+                                                    <input type="date" class="form-control fw-bold" name="termDate"
+                                                        disabled>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                             <div class="row">
@@ -288,17 +316,6 @@
                                                                 <div>
                                                                     <h6 class="fw-bold mt-2">Début du congé prénatal :
                                                                     </h6>
-                                                                    <ul>
-                                                                        <li>
-                                                                            <i>
-                                                                                <strong>Remarque</strong> : On part du
-                                                                                principe que la grossesse est simple
-                                                                                pour le calcul des dates. Si jumeaux et
-                                                                                plus, veuillez cocher et le calcul sera
-                                                                                modifié.
-                                                                            </i>
-                                                                        </li>
-                                                                    </ul>
                                                                 </div>
                                                             </td>
                                                             <td class="form-text" style="background-color: #f2f2f2;">
@@ -540,14 +557,14 @@
                                                 <strong>Télécharger le calendrier personnalisé</strong>
                                             </a> #}
                                             <a href="#" onclick="printCalendar(event)">
-                                                <strong>Télécharger le calendrier personnalisé</strong>
+                                                <strong>Télécharger votre calendrier personnalisé</strong>
                                             </a>
                                         </li>
                                         <li>
                                             <a target="_blank"
                                                 href="https://rpvo.mlc-site.fr/wp-content/uploads/2024/03/Pour-un-meilleur-suivi-grossesse-version-memo_VF170723.pdf"
                                                 id="memo">
-                                                <strong>Télécharger votre fiche mémo</strong>
+                                                <strong>Télécharger la fiche mémo</strong>
                                             </a>
                                         </li>
                                     </ul>
@@ -565,6 +582,13 @@
                                             Caf
                                         </a>
                                     </div>
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <a href="https://rpvo.mlc-site.fr/grossesse/nutrition-et-hygiene-de-vie/"
+                                        target="_blank">
+                                        <img src="{{asset('assets/img/hygiène de vie.jpeg')}}" alt="" class="w-100">
+                                    </a>
                                 </div>
 
                                 <div class="col-12 d-flex align-items-center justify-content-around">
@@ -615,20 +639,16 @@
         #toprint,
         #toprint * {
             visibility: visible;
-            font-size: 12px;
+            font-size: 11px;
         }
 
         #toprint {
             size: A4;
-            margin: 0;
-            width: 100%;
-        }
-
-        #toprint {
             padding: 5px;
             position: absolute;
             left: 0;
             top: 0;
+            padding-bottom: 0;
         }
     }
 </style>

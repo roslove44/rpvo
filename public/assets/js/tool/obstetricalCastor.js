@@ -355,21 +355,6 @@ pregnancyStartDate.addEventListener("change", function (event) {
   );
 });
 
-personnalCalendar.addEventListener("click", function (event) {
-  event.preventDefault();
-  if (termDate.value == "") {
-    alert("*Renseignez au moins une date que vous connaissez");
-    return;
-  } else {
-    let pregnancyAgeCalc = calcPregnancyAge(pregnancyStartDate.value);
-    let pregnancyAgeWeeks =
-      pregnancyAgeCalc.weeks + pregnancyAgeCalc.remainingDays / 7;
-    let trim = calcCurrentTrim(pregnancyAgeWeeks);
-    let urlPDF = "/assets/docs/M%C3%A9mo%20Trimestre-" + trim + ".pdf";
-    window.open(urlPDF, "_blank");
-  }
-});
-
 vacancesChildren.addEventListener("click", function (event) {
   if (lastMenstrualDate.value == "") {
     result_vacaionType.textContent = "";

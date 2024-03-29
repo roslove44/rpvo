@@ -2785,3 +2785,10 @@ section {
 .form-text {
   font-size: 0.875rem;
 }
+
+.title-color {
+  color: var(--color-primary);
+}
+.font-title {
+  font-family: var(--font-primary);
+}
