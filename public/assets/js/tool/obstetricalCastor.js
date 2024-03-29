@@ -7,8 +7,6 @@ const options = {
   month: "long",
   day: "numeric",
 };
-document.getElementById("currentDate").textContent =
-  new Date().toLocaleDateString();
 // End Global Data
 
 // Base data
@@ -187,8 +185,7 @@ function calcVacationDates(
   vacancesChildren,
   vacancesTriplets,
   vacancesTwins,
-  maternityVacationField,
-  prenatalVacationField
+  maternityVacationField
 ) {
   if (
     vacancesChildren.value <= 1 &&
@@ -200,10 +197,6 @@ function calcVacationDates(
       " au " +
       longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 70)) +
       " (jour de reprise) ";
-    prenatalVacationField.textContent =
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, -42)) +
-      " au " +
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 0));
   }
 
   if (
@@ -216,10 +209,6 @@ function calcVacationDates(
       " au " +
       longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 126)) +
       " (jour de reprise) ";
-    prenatalVacationField.textContent =
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, -56)) +
-      " au " +
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 0));
   }
 
   if (vacancesTwins.checked) {
@@ -228,10 +217,6 @@ function calcVacationDates(
       " au " +
       longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 154)) +
       " (jour de reprise) ";
-    prenatalVacationField.textContent =
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, -84)) +
-      " au " +
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 0));
   }
 
   if (vacancesTriplets.checked) {
@@ -240,10 +225,6 @@ function calcVacationDates(
       " au " +
       longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 154)) +
       " (jour de reprise) ";
-    prenatalVacationField.textContent =
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, -168)) +
-      " au " +
-      longFormatDate(calcTermDate(lastMenstrualDate.value, 41, 0));
   }
 }
 
@@ -284,8 +265,7 @@ lastMenstrualDate.addEventListener("change", function (event) {
     vacancesChildren,
     vacancesTriplets,
     vacancesTwins,
-    maternityVacationField,
-    prenatalVacationField
+    maternityVacationField
   );
   if (isValidDateFormat(pregnancyStartDate.value)) {
     let pregnancyAgeCalc = calcPregnancyAge(pregnancyStartDate.value);
@@ -350,8 +330,7 @@ pregnancyStartDate.addEventListener("change", function (event) {
     vacancesChildren,
     vacancesTriplets,
     vacancesTwins,
-    maternityVacationField,
-    prenatalVacationField
+    maternityVacationField
   );
 });
 
@@ -366,8 +345,7 @@ vacancesChildren.addEventListener("click", function (event) {
     vacancesChildren,
     vacancesTriplets,
     vacancesTwins,
-    maternityVacationField,
-    prenatalVacationField
+    maternityVacationField
   );
 });
 
@@ -385,8 +363,7 @@ vacancesTriplets.addEventListener("click", function (event) {
     vacancesChildren,
     vacancesTriplets,
     vacancesTwins,
-    maternityVacationField,
-    prenatalVacationField
+    maternityVacationField
   );
 });
 
@@ -404,8 +381,7 @@ vacancesTwins.addEventListener("click", function (event) {
     vacancesChildren,
     vacancesTriplets,
     vacancesTwins,
-    maternityVacationField,
-    prenatalVacationField
+    maternityVacationField
   );
 });
 

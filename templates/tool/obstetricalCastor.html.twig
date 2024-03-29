@@ -145,7 +145,7 @@
                             <h3 class="accordion-header">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#faq-content-5">
-                                    <span class="num">4.</span>
+                                    <span class="num">5.</span>
                                     Accouchement prématuré
                                 </button>
                             </h3>
@@ -192,26 +192,41 @@
                                 </ul>
                             </div>
                             <div class="row align-items-end">
-                                <div class="col-lg-6 pr-lg-0">
+                                <div class="col-lg-3 pr-lg-0">
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th scope="col" class="text-center text-uppercase"
+                                                <th scope="col" class="text-center text-uppercase rounded-top-2"
                                                     style="background-color: var(--color-primary); color:#f2f2f2;">
                                                     Date des dernières règles
                                                 </th>
-                                                <th scope="col" class="text-center text-uppercase"
-                                                    style="background-color: var(--color-primary);color:#f2f2f2;">
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center rounded-bottom-2 border-0"
+                                                    style="background-color: #f2f2f2;">
+                                                    <input type="date" class="form-control" name="lastMenstrualDate">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="col-lg-3 pr-lg-0">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="text-center text-uppercase rounded-top-2"
+                                                    style="background-color: var(--color-primary); color:#f2f2f2;">
                                                     Date de début de grossesse
                                                 </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td class="text-center" style="background-color: #f2f2f2;">
-                                                    <input type="date" class="form-control" name="lastMenstrualDate">
-                                                </td>
-                                                <td class="text-center" style="background-color: #f2f2f2;">
+                                                <td class="text-center rounded-bottom-2 border-0"
+                                                    style="background-color: #f2f2f2;">
                                                     <input type="date" class="form-control" name="pregnancyStartDate">
                                                 </td>
                                             </tr>
@@ -219,27 +234,42 @@
                                     </table>
                                 </div>
 
-                                <div class="col-lg-6 pl-lg-0">
+                                <div class="col-lg-3 pr-lg-0">
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <th scope="col" class="text-center text-uppercase"
+                                                <th scope="col" class="text-center text-uppercase rounded-top-2"
                                                     style="background-color: var(--color-primary); color:#f2f2f2;">
-                                                    Votre âge gestationnel au <span id="currentDate"></span>
+                                                    Terme de grossesse à ce jour
                                                 </th>
-                                                <th scope="col" class="text-center text-uppercase"
-                                                    style="background-color: var(--color-primary);color:#f2f2f2;">
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center rounded-bottom-2 border-0"
+                                                    style="background-color: #f2f2f2;">
+                                                    <input type="text" class="form-control fw-bold" name="currentTerm"
+                                                        disabled>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="col-lg-3 pr-lg-0">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="text-center text-uppercase rounded-top-2"
+                                                    style="background-color: var(--color-primary); color:#f2f2f2;">
                                                     Date prévue d'accouchement
                                                 </th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td class="text-center" style="background-color: #f2f2f2;">
-                                                    <input type="text" class="form-control fw-bold" name="currentTerm"
-                                                        disabled>
-                                                </td>
-                                                <td class="text-center" style="background-color: #f2f2f2;">
+                                                <td class="text-center rounded-bottom-2 border-0"
+                                                    style="background-color: #f2f2f2;">
                                                     <input type="date" class="form-control fw-bold" name="termDate"
                                                         disabled>
                                                 </td>
@@ -268,7 +298,7 @@
                                                     <tbody id="generalCalendar">
                                                         {# Gestion des congés #}
                                                         <tr>
-                                                            <td class="form-text border-bottom-0">
+                                                            <td class="form-text">
                                                                 <div>
                                                                     <h6 class="fw-bold">Congé maternité :</h6>
                                                                     <div class="row align-items-center">
@@ -308,19 +338,6 @@
                                                                 style="background-color: #f2f2f2;min-width: 150px;">
                                                                 <div class="d-flex flex-column justify-content-center">
                                                                     <span id="maternityVacationField"></span>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="form-text">
-                                                                <div>
-                                                                    <h6 class="fw-bold mt-2">Début du congé prénatal :
-                                                                    </h6>
-                                                                </div>
-                                                            </td>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
-                                                                <div class="d-flex flex-column justify-content-center">
-                                                                    <span id="prenatalVacationField"></span>
                                                                 </div>
                                                             </td>
                                                         </tr>
@@ -550,45 +567,48 @@
                                     </div>
                                 </div>
 
-                                <div class="col-12 mt-3">
-                                    <ul>
-                                        <li>
-                                            {# <a href="#" id="personnalCalendar">
-                                                <strong>Télécharger le calendrier personnalisé</strong>
-                                            </a> #}
-                                            <a href="#" onclick="printCalendar(event)">
-                                                <strong>Télécharger votre calendrier personnalisé</strong>
+                                <div class="row mt-3">
+                                    <div class="col-lg-6">
+                                        <ul>
+                                            <li>
+                                                {# <a href="#" id="personnalCalendar">
+                                                    <strong>Télécharger le calendrier personnalisé</strong>
+                                                </a> #}
+                                                <a href="#" onclick="printCalendar(event)">
+                                                    <strong>Télécharger votre calendrier personnalisé</strong>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a target="_blank"
+                                                    href="https://rpvo.mlc-site.fr/wp-content/uploads/2024/03/Pour-un-meilleur-suivi-grossesse-version-memo_VF170723.pdf"
+                                                    id="memo">
+                                                    <strong>Télécharger la fiche mémo</strong>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <h6>Pour faire votre déclaration de grossesse :</h6>
+                                        <div class="mt-4">
+
+                                            <a target="_blank" class="btn buy-btn px-4"
+                                                href="https://www.ameli.fr/val-d-oise/assure/droits-demarches/famille/maternite-paternite-adoption/grossesse">
+                                                Ameli
                                             </a>
-                                        </li>
-                                        <li>
-                                            <a target="_blank"
-                                                href="https://rpvo.mlc-site.fr/wp-content/uploads/2024/03/Pour-un-meilleur-suivi-grossesse-version-memo_VF170723.pdf"
-                                                id="memo">
-                                                <strong>Télécharger la fiche mémo</strong>
+
+
+                                            <a target="_blank" class="btn buy-btn px-4"
+                                                href="https://www.caf.fr/allocataires/aides-et-demarches/ma-situation/vie-personnelle/j-attends-un-enfant">
+                                                CAF
                                             </a>
-                                        </li>
-                                    </ul>
-                                    <h6>Pour faire votre déclaration :</h6>
-                                    <div>
+                                        </div>
+                                    </div>
 
-                                        <a target="_blank" class="btn buy-btn mt-3 px-4"
-                                            href="https://www.ameli.fr/val-d-oise/assure/droits-demarches/famille/maternite-paternite-adoption/grossesse">
-                                            Ameli
-                                        </a>
-
-
-                                        <a target="_blank" class="btn buy-btn mt-3 px-4"
-                                            href="https://www.caf.fr/allocataires/aides-et-demarches/ma-situation/vie-personnelle/j-attends-un-enfant">
-                                            CAF
+                                    <div class="col-lg-6 mt-3 mt-lg-0">
+                                        <a href="https://rpvo.mlc-site.fr/grossesse/nutrition-et-hygiene-de-vie/"
+                                            target="_blank">
+                                            <img src="{{asset('assets/img/hygiène de vie.jpeg')}}" alt=""
+                                                class="w-100 h-75 object-fit-fill">
                                         </a>
                                     </div>
-                                </div>
-
-                                <div class="col-12 mt-3">
-                                    <a href="https://rpvo.mlc-site.fr/grossesse/nutrition-et-hygiene-de-vie/"
-                                        target="_blank">
-                                        <img src="{{asset('assets/img/hygiène de vie.jpeg')}}" alt="" class="w-100">
-                                    </a>
                                 </div>
 
                                 <div class="col-12 d-flex align-items-center justify-content-around">
