@@ -13,13 +13,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ToolController extends AbstractController
 {
-    #[Route('/outils', name: 'app_tool')]
+    #[Route('/', name: 'app_tool')]
     public function index(): Response
     {
-        return $this->render('tool/index.html.twig', []);
+        return $this->redirect('https://rpvo-v2.mlc-site.fr/outils-pratiques/');
     }
 
-    #[Route('/outils/calculateur-age-reel-age-corrige-pour-prematures', name: 'app_tool_calculatorForPremature')]
+    #[Route('calculateur-age-reel-age-corrige-pour-prematures', name: 'app_tool_calculatorForPremature')]
     public function calculatorForPremature(Request $request, CalculatorForPrematureService $calcFPS): Response
     {
         $calculatorForPrematureForm = $this->createForm(CalculatorForPrematureFormType::class);
@@ -44,9 +44,88 @@ class ToolController extends AbstractController
         return $this->render('tool/calculatorForPremature.html.twig', compact('calculatorForPrematureForm', 'fixedAge', 'realAge', 'result', 'data'));
     }
 
-    #[Route('/outils/roulette-obstetricale', name: 'app_tool_obstetricalCastor')]
-    public function obstetricalCastor(Request $request): Response
+    #[Route('calendrier-de-grossesse-personnalise', name: 'app_tool_obstetricalCastor')]
+    public function obstetricalCastor(): Response
     {
         return $this->render('tool/obstetricalCastor.html.twig');
     }
+
+    #[Route('calculateur-de-grossesse', name: 'app_tool_pregnancyDate')]
+    public function pregnancyDate(): Response
+    {
+        return $this->render('tool/pregnancyDate.html.twig');
+    }
+
+    // #[Route('calendrier-de-grossesse', name: 'app_tool_PregnancyCalendar')]
+    // public function PregnancyCalendar(Request $request): Response
+    // {
+    //     $result = false;
+    //     if ($request->isMethod('POST')) {
+    //         // Récupérez les données du formulaire
+    //         $lastMenstrualDate = $request->request->get('lastMenstrualDate');
+    //         $lastMenstrualDateTime = new DateTime($lastMenstrualDate);
+    //         $cycleDuration = $request->request->get('cycleDuration');
+    //         $cycleIncidence = 287 + $cycleDuration - 28;
+
+    //         $gestationPeriod = new DateInterval("P" . $cycleIncidence . "D");
+
+
+
+    //         $estimatedDueDate = clone $lastMenstrualDateTime;
+    //         $estimatedDueDate->add($gestationPeriod);
+    //         $today = new DateTime();
+    //         $differenceInDays = $today->diff($estimatedDueDate)->days + 1;
+
+    //         // Date de la première échographie
+    //         $firstUltrasoundDate = [
+    //             "min" => (clone $lastMenstrualDateTime)->add(new DateInterval("P12W"))->sub(new DateInterval("P1D")),
+    //             "max" => (clone $lastMenstrualDateTime)->add(new DateInterval("P14W"))->sub(new DateInterval("P1D"))
+    //         ];
+
+    //         $secondUltrasoundDate = [
+    //             "min" => (clone $lastMenstrualDateTime)->add(new DateInterval("P20W")),
+    //             "max" => (clone $lastMenstrualDateTime)->add(new DateInterval("P22W"))
+    //         ];
+
+    //         $thirdUltrasoundDate = [
+    //             "min" => (clone $lastMenstrualDateTime)->add(new DateInterval("P30W")),
+    //             "max" => (clone $lastMenstrualDateTime)->add(new DateInterval("P32W"))
+    //         ];
+
+
+    //         $trimester = $this->determineTrimester($differenceInDays);
+    //         $result = [
+    //             "lastMenstrualDate" => $lastMenstrualDate,
+    //             "cycleDuration" => $cycleDuration,
+    //             "cycleIncidence" => $cycleIncidence,
+    //             "estimatedDueDate" => $estimatedDueDate,
+    //             "differenceInDays" => $differenceInDays,
+    //             "firstUltrasoundDate" => $firstUltrasoundDate,
+    //             "secondUltrasoundDate" => $secondUltrasoundDate,
+    //             "thirdUltrasoundDate" => $thirdUltrasoundDate,
+    //             "trimester" => $trimester
+    //         ];
+    //     }
+    //     return $this->render('tool/pregnancyCalendar.html.twig', compact('result'));
+    // }
+
+    // private function determineTrimester($daysPregnant)
+    // {
+    //     if ($daysPregnant <= 13 * 7) {
+    //         return [
+    //             'rank' => 3,
+    //             'title' => "Troisième trimestre"
+    //         ];
+    //     } elseif ($daysPregnant <= 26 * 7) {
+    //         return [
+    //             'rank' => 2,
+    //             'title' => "Deuxième trimestre"
+    //         ];
+    //     } else {
+    //         return [
+    //             'rank' => 1,
+    //             'title' => "Premier trimestre"
+    //         ];
+    //     }
+    // }
 }

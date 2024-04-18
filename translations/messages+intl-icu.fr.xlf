@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="month.january">
+        <source>January</source>
+        <target>Janvier</target>
+      </trans-unit>
+      <trans-unit id="month.february">
+        <source>February</source>
+        <target>Février</target>
+      </trans-unit>
+      <trans-unit id="month.march">
+        <source>March</source>
+        <target>Mars</target>
+      </trans-unit>
+      <trans-unit id="month.april">
+        <source>April</source>
+        <target>Avril</target>
+      </trans-unit>
+      <trans-unit id="month.may">
+        <source>May</source>
+        <target>Mai</target>
+      </trans-unit>
+      <trans-unit id="month.june">
+        <source>June</source>
+        <target>Juin</target>
+      </trans-unit>
+      <trans-unit id="month.july">
+        <source>July</source>
+        <target>Juillet</target>
+      </trans-unit>
+      <trans-unit id="month.august">
+        <source>August</source>
+        <target>Août</target>
+      </trans-unit>
+      <trans-unit id="month.september">
+        <source>September</source>
+        <target>Septembre</target>
+      </trans-unit>
+      <trans-unit id="month.october">
+        <source>October</source>
+        <target>Octobre</target>
+      </trans-unit>
+      <trans-unit id="month.november">
+        <source>November</source>
+        <target>Novembre</target>
+      </trans-unit>
+      <trans-unit id="month.december">
+        <source>December</source>
+        <target>Décembre</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

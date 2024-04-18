@@ -1,18 +1,29 @@
 {% extends "base.html.twig" %}
 {% block title %}Calculateur d'Âge réel ou corrigé pour les Prématurés{% endblock %}
+{% block description %}
+<meta name="description"
+    content="Cet outil permet de calculer l'écart entre l'âge corrigé (l'âge qu'il aurait s'il était né à terme) et l'âge réel (déterminé selon la date de naissance) de l'enfant né prématurément.">
+{% endblock %}
+{% block keywords %}
+<meta name="keywords" content="bébé, prématuré, bébé prématuré, âge réel, âge corrigé, rpvo">
+{% endblock %}
+{% block canonical%}
+<link rel="canonical" href="{{ url(app.request.get('_route'), app.request.get('_route_params')) }}">
+{% endblock %}
 
 
 {% block body %}
 <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs">
+    <div class="breadcrumbs"
+        style="background: url(&quot;https://rpvo.mlc-site.fr/wp-content/themes/pregnancy/images/breadcrumb1.jpg&quot;) 50% 100% no-repeat;">
         <div class="page-header d-flex align-items-center" style="background-image: url('');">
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6 text-center">
                         <h2>RPVO</h2>
-                        <p>Consultez la liste des outils mise à votre disposition</p>
+                        <p>Profitez des outils mis à votre disposition.</p>
                     </div>
                 </div>
             </div>
@@ -20,14 +31,136 @@
         <nav>
             <div class="container">
                 <ol>
-                    <li><a href="{{path('app_main')}}">Accueil</a></li>
-                    <li><a href="{{path('app_tool')}}">Outils pratiques</a></li>
+                    <li><a href="https://rpvo.mlc-site.fr/">RPVO</a></li>
+                    <li><a href="https://rpvo.mlc-site.fr/outils-pratiques/">Outils pratiques</a></li>
                     <li>Calculateur d'Âge réel ou corrigé pour les Prématurés</li>
                 </ol>
             </div>
         </nav>
     </div><!-- End Breadcrumbs -->
 
+
+    <section id="outils-guide" class="faq mt-4">
+        <div class="container aos-init aos-animate" data-aos="fade-up">
+            <div class="section-header">
+                <h2>Calculateur d'âge réel ou corrigé pour les prématurés</h2>
+            </div>
+        </div>
+        <div class="container aos-init aos-animate" data-aos="fade-up">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-12">
+                    <div class="content px-xl-5">
+                        <h3>Le Guide <strong>Pratique</strong></h3>
+                        <p>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+
+                    <div class="accordion accordion-flush aos-init aos-animate" id="faqlist" data-aos="fade-up"
+                        data-aos-delay="100">
+
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-1">
+                                    <span class="num">1.</span>
+                                    Le terme
+                                </button>
+                            </h3>
+                            <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                                <div class="accordion-body">
+                                    C'est la durée de votre grossesse au moment où vous le calculez. Il se définit en
+                                    semaines d'aménorrhée (SA). La durée
+                                    totale d'une grossesse est de 41 SA.
+                                </div>
+                            </div>
+                        </div><!-- # Faq item-->
+
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-2">
+                                    <span class="num">2.</span>
+                                    Semaine d'aménorrhée (SA)
+                                </button>
+                            </h3>
+                            <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                                <div class="accordion-body">
+                                    Signifie le nombre de semaines écoulées depuis le 1er jour de vos dernières
+                                    règles.
+                                </div>
+                            </div>
+                        </div><!-- # Faq item-->
+
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-3">
+                                    <span class="num">3.</span>
+                                    L'âge réel
+                                </button>
+                            </h3>
+                            <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                                <div class="accordion-body">
+                                    L'âge réel correspond à l'âge calculé à partir de la date de naissance.
+                                </div>
+                            </div>
+                        </div><!-- # Faq item-->
+
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-4">
+                                    <span class="num">4.</span>
+                                    L'âge corrigé
+                                </button>
+                            </h3>
+                            <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                                <div class="accordion-body">
+                                    Correspond à l'âge qu'aurait l'enfant s'il était né à terme.
+                                </div>
+                            </div>
+                        </div><!-- # Faq item-->
+                    </div>
+
+                    <div class="mt-4" data-aos="fade-up">
+                        <p>
+                            <i class="bi bi-lightbulb" style="font-size: 28px;"></i>
+                            <strong class="title-color font-title" style="font-size: 18px;">Pourquoi parler en âge
+                                corrigé ?</strong>
+                            <br>
+                            <span>
+                                L'âge corrigé est utilisé pour évaluer la croissance et le développement
+                                psychomoteur d'un enfant né prématurément, en prenant en considération les semaines
+                                manquantes de grossesse. <br>
+                                Un enfant né prématuré a en quelque sorte des semaines de bonus (= nombre de semaine
+                                d'avance), c'est-à-dire du temps
+                                supplémentaire
+                                pour acquérir les compétences attendues pour son âge.
+                            </span>
+                        </p>
+                        <p>
+                            <i class="bi bi-card-checklist" style="font-size: 28px;"></i>
+                            <strong class="title-color font-title" style="font-size: 18px;">Comment utiliser le
+                                calculateur ?</strong>
+                            <br>
+                            <span>
+                                Renseignez les éléments demandés (en cas de de doute, retrouvez les informations
+                                nécessaires dans le carnet de santé de votre enfant et/ou les comptes-rendus
+                                d'hospitalisation dont vous disposez).
+                            </span>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
 
     <section id="outils" class="faq">
         <div class="container aos-init aos-animate" data-aos="fade-up">
@@ -38,7 +171,8 @@
                     <div class="content px-xl-5">
                         <h3>Le <strong>Calculateur</strong></h3>
                         <p>
-                            Terme SA : Durée de Gestation en Semaines
+                            Cet outil permet de calculer l'écart entre l'âge corrigé (l'âge qu'il aurait s'il était né à
+                            terme) et l'âge réel (déterminé selon la date de naissance) de l'enfant né prématurément.
                         </p>
                     </div>
                 </div>
@@ -47,22 +181,23 @@
                     {{form_start(calculatorForPrematureForm)}}
                     <div class="php-email-form pt-2 pb-2">
                         <div class="form-group mt-3">
-                            <div class="form-label">
+                            <div class="form-label font-title title-color fw-bold">
                                 {{form_label(calculatorForPrematureForm.currentDate)}}
                             </div>
                             {{form_widget(calculatorForPrematureForm.currentDate)}}
                         </div>
                         <div class="form-group mt-3">
-                            <div class="form-label">
+                            <div class="form-label font-title title-color fw-bold">
                                 {{form_label(calculatorForPrematureForm.birthday)}}
                             </div>
                             {{form_widget(calculatorForPrematureForm.birthday)}}
-                            <div class="form-text text-danger font-weight-bold">
+                            <div class="form-text text-danger fw-bold">
                                 {{form_errors(calculatorForPrematureForm.birthday)}}
                             </div>
                         </div>
                         <div class="form-label">
-                            <label for="inputPassword6" class="col-form-label">Terme</label>
+                            <label for="inputPassword6"
+                                class="col-form-label font-title title-color fw-bold">Terme</label>
                         </div>
                         <div class="row g-3 align-items-center">
                             <div class="col-lg-5 col-4">
@@ -81,7 +216,7 @@
                                     jours
                                 </span>
                             </div>
-                            <div class="form-text text-danger font-weight-bold">
+                            <div class="form-text text-danger fw-bold">
                                 {{form_errors(calculatorForPrematureForm.termSA)}}
                                 {{form_errors(calculatorForPrematureForm.termSADays)}}
                             </div>
@@ -98,18 +233,19 @@
                     </div>
                     {{form_end(calculatorForPrematureForm)}}
                 </div>
+
                 {% if result %}
                 <div class="col-lg-8 {% if not result %}d-none{% endif %}aos-init aos-animate" data-aos="fade-up">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Deux Âges, Une Famille</h5>
                             <div class="card-text" style="font-size: 15px;color: #6c757d;">
-                                <p>
-                                    Consultez ci-dessous l'âge réel et ajusté du bébé en fonction des données
-                                    fournies.
-                                </p>
                                 <ul>
-                                    <li>Date de naissance : {{data.birthday | date('j F Y', "Europe/Paris")}}</li>
+                                    <li>
+                                        Date de naissance :
+                                        {{data.birthday | date('j')}}
+                                        {{data.birthday | date('F') | trans}}
+                                        {{data.birthday | date('Y')}}
+                                    </li>
                                     <li>Terme SA : {{data.termSA}} semaine{% if data.termSA > 1 %}s{% endif %}
                                     </li>
                                     <li>Terme jours : {% if data.termSADays %}{{data.termSADays}} jour{% if
@@ -157,97 +293,7 @@
         </div>
     </section>
 
-    <section id="outils" class="faq mt-4">
-        <div class="container aos-init aos-animate" data-aos="fade-up">
 
-            <div class="row gy-4">
-
-                <div class="col-lg-4">
-                    <div class="content px-xl-5">
-                        <h3>Le Guide <strong>Pratique</strong></h3>
-                        <p>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-lg-8">
-
-                    <div class="accordion accordion-flush aos-init aos-animate" id="faqlist" data-aos="fade-up"
-                        data-aos-delay="100">
-
-                        <div class="accordion-item">
-                            <h3 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq-content-1">
-                                    <span class="num">1.</span>
-                                    Terme SA ?
-                                </button>
-                            </h3>
-                            <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                <div class="accordion-body">
-                                    Le terme "SA" dans le contexte de la grossesse signifie "semaines d'aménorrhée". Les
-                                    semaines d'aménorrhée représentent le nombre de semaines qui se sont écoulées depuis
-                                    le premier jour des dernières règles de la femme enceinte. C'est une
-                                    mesure couramment utilisée pour suivre la progression de la grossesse.
-                                    <br>
-                                    <i>Par exemple, 30 semaines SA signifieraient que la femme est enceinte depuis 30
-                                        semaines</i>
-                                </div>
-                            </div>
-                        </div><!-- # Faq item-->
-
-                        <div class="accordion-item">
-                            <h3 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq-content-2">
-                                    <span class="num">2.</span>
-                                    Terme Jour ?
-                                </button>
-                            </h3>
-                            <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                <div class="accordion-body">
-                                    Le terme "Terme Jour" dans le contexte de la grossesse se réfère au nombre de jours
-                                    écoulés depuis le premier jour des dernières règles de la femme enceinte. Il
-                                    complète la mesure des semaines d'aménorrhée (SA) en fournissant une indication plus
-                                    détaillée du temps écoulé depuis le début du cycle menstruel.
-                                </div>
-                            </div>
-                        </div><!-- # Faq item-->
-
-                        <div class="accordion-item">
-                            <h3 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq-content-3">
-                                    <span class="num">3.</span>
-                                    Comment calculer l'âge corrigé
-                                </button>
-                            </h3>
-                            <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                <div class="accordion-body">
-                                    L'âge corrigé d'un bébé prématuré peut être calculé en soustrayant le nombre de
-                                    semaines de prématurité de son âge chronologique. Voici comment procéder :
-                                    <br>
-                                    <h5>Formule :</h5>
-                                    <p>
-                                        <code>Âge corrigé = Âge chronologique - Nombre de semaines de prématurité</code>
-                                    </p>
-
-                                    <h5>Exemple :</h5>
-                                    <p>Supposons qu'un bébé a 4 mois et soit né à 28 semaines de grossesse.</p>
-
-                                    <code>Nombre de semaines de prématurité = Terme complet - Terme SA</code><br>
-                                    <code>Nombre de semaines de prématurité = 40 semaines - 28 semaines = 12 semaines</code><br>
-                                    <code>Âge corrigé = 4 mois - (12 semaines / 4 semaines/mois) = 1 mois</code><br>
-                                </div>
-                            </div>
-                        </div><!-- # Faq item-->
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
 
 </main><!-- End #main -->
 {% endblock %}

@@ -1,18 +1,29 @@
 {% extends "base.html.twig" %}
-{% block title %}Roulette obstétricale - RPVO{% endblock %}
+{% block title %}Calendrier de grossesse personnalisé - RPVO{% endblock %}
+{% block description %}
+<meta name="description"
+    content="Vous êtes enceinte et souhaitez calculer votre terme de grossesse afin de connaitre la chronologie des examens obligatoires et recommandés ? Utilisez notre calculateur pour mieux visualiser les différentes étapes de votre grossesse.">
+{% endblock %}
+{% block keywords %}
+<meta name="keywords" content="calendrier, grossesse, Calendrier de grossesse, rpvo">
+{% endblock %}
+{% block canonical%}
+<link rel="canonical" href="{{ url(app.request.get('_route'), app.request.get('_route_params')) }}">
+{% endblock %}
 
 
 {% block body %}
 <main id="main">
 
     <!-- ======= Breadcrumbs ======= -->
-    <div class="breadcrumbs">
+    <div class="breadcrumbs"
+        style="background: url(&quot;https://rpvo.mlc-site.fr/wp-content/themes/pregnancy/images/breadcrumb1.jpg&quot;) 50% 100% no-repeat;">
         <div class="page-header d-flex align-items-center" style="background-image: url('');">
             <div class="container position-relative">
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-6 text-center">
                         <h2>RPVO</h2>
-                        <p>Consultez la liste des outils mise à votre disposition</p>
+                        <p>Profitez des outils mis à votre disposition.</p>
                     </div>
                 </div>
             </div>
@@ -20,25 +31,157 @@
         <nav>
             <div class="container">
                 <ol>
-                    <li><a href="{{path('app_main')}}">Accueil</a></li>
-                    <li><a href="{{path('app_tool')}}">Outils pratiques</a></li>
-                    <li>Roulette obstétricale</li>
+                    <li><a href="https://rpvo.mlc-site.fr/">RPVO</a></li>
+                    <li><a href="https://rpvo.mlc-site.fr/outils-pratiques/">Outils pratiques</a></li>
+                    <li>Calendrier de grossesse personnalisé</li>
                 </ol>
             </div>
         </nav>
     </div><!-- End Breadcrumbs -->
 
 
-    <section id="outils" class="faq">
+    <section id="outils-guide" class="faq mt-4">
+        <div class="container aos-init aos-animate" data-aos="fade-up">
+            <div class="section-header mb-0 pb-2">
+                <h2>Calendrier de grossesse personnalisé</h2>
+                <p>
+                    Vous êtes enceinte et souhaitez calculer votre terme de grossesse afin de connaître la chronologie
+                    des examens obligatoires et recommandés ?
+                </p>
+                <p class="mt-2">
+                    A partir de la date de vos dernières règles ou de la date de début de grossesse, visualiser votre
+                    calendrier de suivi de grossesse avec les étapes clefs.
+                </p>
+                <p class="mt-2">
+                    Merci de renseigner la date au format JJ/MM/AAAA ou d'utiliser le calendrier.
+                </p>
+            </div>
+            <p class="d-none">
+                <strong><i class="bi bi-lightbulb" style="font-size: 28px;"></i>Pensez également à télécharger votre
+                    fiche-mémo !</strong>
+            </p>
+        </div>
+        <div class="container aos-init aos-animate d-none" data-aos="fade-up">
+
+            <div class="row gy-4">
+
+                <div class="col-lg-12">
+                    <div class="content px-xl-5">
+                        <h3>Le Guide <strong>Pratique</strong></h3>
+                        <p>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+
+                    <div class="accordion accordion-flush aos-init aos-animate" id="faqlist" data-aos="fade-up"
+                        data-aos-delay="100">
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-1">
+                                    <span class="num">1.</span>
+                                    Le Terme
+                                </button>
+                            </h3>
+                            <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                                <div class="accordion-body">
+                                    <p>
+                                        C'est la durée de votre grossesse au moment où vous le calculez. Il se définit
+                                        en semaines d'aménorrhée (SA). La durée
+                                        totale d'une grossesse est de 41 SA.
+                                    </p>
+                                </div>
+                            </div>
+                        </div><!-- # Faq item-->
+
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-2">
+                                    <span class="num">2.</span>
+                                    Semaine d'aménorrhée (SA)
+                                </button>
+                            </h3>
+                            <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                                <div class="accordion-body">
+                                    Signifie le nombre de semaines écoulées depuis le 1er jour de vos dernières
+                                    règles.
+                                </div>
+                            </div>
+                        </div><!-- # Faq item-->
+
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-3">
+                                    <span class="num">3.</span>
+                                    Être à terme
+                                </button>
+                            </h3>
+                            <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                                <div class="accordion-body">
+                                    <p>
+                                        Signifie que votre grossesse atteint 41SA ce qui correspond à la fin du 9ème
+                                        mois.
+                                    </p>
+                                </div>
+                            </div>
+                        </div><!-- # Faq item-->
+
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-4">
+                                    <span class="num">4.</span>
+                                    Dépasser son terme
+                                </button>
+                            </h3>
+                            <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                                <div class="accordion-body">
+                                    <p>
+                                        Vous dépassez votre terme lorsque vous accouchez après 41 SA
+                                    </p>
+                                </div>
+                            </div>
+                        </div><!-- # Faq item-->
+
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-5">
+                                    <span class="num">5.</span>
+                                    Accouchement prématuré
+                                </button>
+                            </h3>
+                            <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                                <div class="accordion-body">
+                                    <p>
+                                        Vous accouchez prématurément avant 37 SA
+                                    </p>
+                                </div>
+                            </div>
+                        </div><!-- # Faq item-->
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="outils" class="faq pt-0">
         <div class="container aos-init aos-animate" data-aos="fade-up">
 
-            <div class="row gy-4 contact">
+            <div class="row gy-2 contact justify-content-center">
 
-                <div class="col-lg-3">
-                    <div class="content px-xl-5">
-                        <h3><strong>Roulette obstétricale</strong></h3>
+                <div class="col-lg-3 d-none">
+                    <div class="content pr-xl-5">
+                        <h3><strong>Calculateur et suivi de grossesse</strong></h3>
                         <p>
-                            Cet outil est un calculateur de dates utiles pour le suivi obstétrical.
+                            Cet outil vous permet de calculer votre terme de grossesse et d'obtenir un aperçu
+                            personnalisé des rendez-vous à prévoir tout au long de votre grossesse.
                         </p>
                     </div>
                 </div>
@@ -49,53 +192,104 @@
                             <div class="form-text" id="basic-addon4">
                                 <ul style="list-style-type: none;">
                                     <li>
-                                        <i>*Renseignez la date que vous connaissez</i>
+                                        <i>*Renseignez la date de vos dernières règles (DDR) ou la date du début de
+                                            grossesse (DDG)</i>
                                     </li>
                                 </ul>
                             </div>
-                            <div class="row">
-                                <div class="col-lg-4 col-12">
-                                    <label><strong>Date des dernières règles</strong></label>
-                                    <div class="input-group mb-3">
-                                        <input type="date" class="form-control" name="lastMenstrualDate">
-                                    </div>
+                            <div class="row align-items-end">
+                                <div class="col-xl-3">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="text-center text-uppercase rounded-top-2"
+                                                    style="background-color: var(--color-primary); color:#f2f2f2;">
+                                                    Date des dernières règles
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center rounded-bottom-2 border-0"
+                                                    style="background-color: #f2f2f2;">
+                                                    <input type="date" class="form-control" name="lastMenstrualDate">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                                <div class="col-lg-4 col-12">
-                                    <label><strong>Date de début de grossesse</strong></label>
-                                    <div class="input-group mb-3">
-                                        <input type="date" class="form-control" name="pregnancyStartDate">
-                                    </div>
+
+                                <div class="col-xl-3">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="text-center text-uppercase rounded-top-2"
+                                                    style="background-color: var(--color-primary); color:#f2f2f2;">
+                                                    Date de début de grossesse
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center rounded-bottom-2 border-0"
+                                                    style="background-color: #f2f2f2;">
+                                                    <input type="date" class="form-control" name="pregnancyStartDate">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                                <div class="col-lg-4 col-12">
-                                    <label><strong>Date de terme (41 SA)</strong></label>
-                                    <div class="input-group mb-3">
-                                        <input type="date" class="form-control" name="termDate">
-                                    </div>
+
+                                <div class="col-xl-3">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="text-center text-uppercase rounded-top-2"
+                                                    style="background-color: var(--color-primary); color:#f2f2f2;">
+                                                    Terme de grossesse à ce jour
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center rounded-bottom-2 border-0"
+                                                    style="background-color: #f2f2f2;">
+                                                    <input type="text" class="form-control fw-bold" name="currentTerm"
+                                                        disabled>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="col-xl-3">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="text-center text-uppercase rounded-top-2"
+                                                    style="background-color: var(--color-primary); color:#f2f2f2;">
+                                                    Date prévue d'accouchement
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center rounded-bottom-2 border-0"
+                                                    style="background-color: #f2f2f2;">
+                                                    <input type="date" class="form-control fw-bold" name="termDate"
+                                                        disabled>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-12 ">
-                                    <div class="card">
-                                        <div class="card-header">
-                                            <strong><i>Dates importantes</i></strong>
-                                        </div>
-                                        <div class="card-body">
-                                            <div id="pregnancyAge" class="form-text">
-                                                <ul style="list-style-type: none;">
-                                                    <li class="text-capitalize text-bold"></li>
-                                                    <li class="text-capitalize"></li>
-                                                    <li class="text-capitalize"></li>
-                                                    <li class="text-capitalize"></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 mt-2 aos-init aos-animate" data-aos="fade-up">
+                                <div class="col-12 mt-2 aos-init aos-animate" data-aos="fade-up" id="toprint">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="card-header">
-                                                <strong><i>Calendrier général</i></strong>
+                                                <strong><i>Calendrier</i></strong>
                                             </div>
                                             <div class="card-text" style="font-size: 15px;color: #6c757d;">
                                                 <table class="table mt-2">
@@ -105,85 +299,200 @@
                                                             </th>
                                                             <th scope="col" class="text-center">
                                                             </th>
-                                                            <th scope="col" class="text-center">
-                                                            </th>
                                                         </tr>
                                                     </thead>
                                                     <tbody id="generalCalendar">
+                                                        {# Gestion des congés #}
                                                         <tr>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
-                                                                Dernières règles
-                                                            </td>
                                                             <td class="form-text">
+                                                                <div>
+                                                                    <h6 class="fw-bold">Congé maternité :</h6>
+                                                                    <div class="row align-items-center">
+                                                                        <div class="col-auto">Nombre d'enfants nés</div>
+                                                                        <div class="col-auto">
+                                                                            <input type="number" name="childrenNumber"
+                                                                                id="childrenNumber" class="form-control"
+                                                                                min="0" value="0">
+                                                                        </div>
+                                                                        <div class="col-auto">
+                                                                            <span id="passwordHelpInline"
+                                                                                class="form-text">
+                                                                                <i>*Renseigner un nombre.</i>
+                                                                            </span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row align-items-center">
+                                                                        <label class="col-auto"
+                                                                            for="twins">Jumeaux</label>
+                                                                        <div class="col-auto">
+                                                                            <input type="checkbox" name="twins"
+                                                                                id="twins" class="form-check-input">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row align-items-center">
+                                                                        <label class="col-auto" for="triplets">Triplés
+                                                                            ou plus
+                                                                            ?</label>
+                                                                        <div class="col-auto">
+                                                                            <input type="checkbox" name="triplets"
+                                                                                id="triplets" class="form-check-input">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </td>
-                                                            <td class="form-text">
+                                                            <td class="form-text border-bottom-0"
+                                                                style="background-color: #f2f2f2;min-width: 150px;">
+                                                                <div class="d-flex flex-column justify-content-center">
+                                                                    <span id="maternityVacationField"></span>
+                                                                </div>
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
-                                                                Début de grossesse
-                                                            </td>
+                                                        {# End Gestion des congés #}
+
+                                                        <tr data-preg-calc="{15, before}" class="trim-1">
                                                             <td class="form-text">
+                                                                <span class="">Consultation 3ème mois</span>
+                                                                <br>
+                                                                À faire avant 15 SA
                                                             </td>
-                                                            <td class="form-text">
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
-                                                                12 SA
-                                                            </td>
+                                                        <tr data-preg-calc="{15, before}" class="trim-1">
                                                             <td class="form-text">
+                                                                <span class="">Déclaration grossesse</span>
+                                                                <br>À faire
+                                                                avant 15 SA
                                                             </td>
-                                                            <td class="form-text">
-                                                                1ère échographie
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
-                                                                15 SA
-                                                            </td>
+                                                        <tr data-preg-calc="{11,13}" class="trim-1">
                                                             <td class="form-text">
+                                                                <span class="">1ère échographie</span> <br>À
+                                                                faire entre
+                                                                11-13 SA
                                                             </td>
-                                                            <td class="form-text">
-                                                                Déclaration de la grossesse
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
-                                                                22 SA
-                                                            </td>
+                                                        {# #}
+                                                        <tr data-preg-calc="{11,13}" class="trim-1">
                                                             <td class="form-text">
+                                                                <span class="">Dépistage de la
+                                                                    Trisomie 21</span> <br>À
+                                                                faire entre 11 et 13SA
                                                             </td>
-                                                            <td class="form-text">
-                                                                2e échographie
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
-                                                                32 SA
-                                                            </td>
+                                                        <tr data-preg-calc="{15, after}" class="trim-2">
                                                             <td class="form-text">
+                                                                <span class="">Entretien Prénatal
+                                                                    Précoce</span>
+                                                                <br>À partir de 15 SA
                                                             </td>
-                                                            <td class="form-text">
-                                                                3e échographie
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
-                                                                Terme- 41 SA
-                                                            </td>
+                                                        <tr data-preg-calc="{15,20}" class="trim-2">
                                                             <td class="form-text">
+                                                                <span class="">Consultation 4ème mois</span>
+                                                                <br>À faire entre 15-20 SA
                                                             </td>
-                                                            <td class="form-text">
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
                                                             </td>
                                                         </tr>
-                                                        <tr>
-                                                            <td class="form-text" style="background-color: #f2f2f2;">
-                                                                Terme - 9 mois
-                                                            </td>
+                                                        <tr data-preg-calc="{22,24}" class="trim-2">
                                                             <td class="form-text">
+                                                                <span class="">2ème échographie</span>
+                                                                <br>À faire entre 22-24 SA
                                                             </td>
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-preg-calc="{20,24}" class="trim-2">
                                                             <td class="form-text">
+                                                                <span class="">Consultation 5ème mois</span>
+                                                                <br>À faire entre 20-24 SA
+                                                            </td>
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-preg-calc="{24,28}" class="trim-2">
+                                                            <td class="form-text">
+                                                                <span class="">Consultation 6ème mois</span>
+                                                                <br>À faire entre 24-28 SA
+                                                            </td>
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-preg-calc="{28, after}" class="trim-3">
+                                                            <td class="form-text">
+                                                                <span class="">Préparation à la
+                                                                    naissance</span>
+                                                                <br>À partir de 28 SA
+                                                            </td>
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-preg-calc="{28,32}" class="trim-3">
+                                                            <td class="form-text">
+                                                                <span class="">Consultation 7ème mois</span>
+                                                                <br>À faire
+                                                                entre 28-32 SA
+                                                            </td>
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-preg-calc="{32,35}" class="trim-3">
+                                                            <td class="form-text">
+                                                                <span class="">3ème échographie</span> <br>À
+                                                                faire entre
+                                                                32-35 SA
+                                                            </td>
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-preg-calc="{32,37}" class="trim-3">
+                                                            <td class="form-text">
+                                                                <span class="">Consultation 8ème mois</span>
+                                                                <br>À faire
+                                                                entre 32-37 SA
+                                                            </td>
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-preg-calc="{37,41}" class="trim-3">
+                                                            <td class="form-text">
+                                                                <span class="">Consultation 9ème mois</span>
+                                                                <br>À faire entre
+                                                                37-41 SA
+                                                            </td>
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr data-preg-calc="{32,41}" class="trim-3">
+                                                            <td class="form-text">
+                                                                <span class="">Consultation
+                                                                    d'anesthésie</span> <br>À faire
+                                                                entre 32-41 SA
+                                                            </td>
+                                                            <td class="form-text " style="background-color: #f2f2f2;">
+                                                                <span></span>
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -192,36 +501,45 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 mt-2 aos-init aos-animate" data-aos="fade-up">
+
+                                {# Sauvegarde Calendrier Spécifique #}
+                                {# <div class="col-12 mt-2 aos-init aos-animate" data-aos="fade-up">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="card-header">
                                                 <strong><i>Calendrier spécifique</i></strong>
+                                                <br>
+                                                <i>
+                                                    Renseignez les éléments demandés ci-dessous afin d'obtenir les
+                                                    dates prévisionnelles de votre congé maternité selon votre situation
+                                                    familiale.
+                                                </i>
                                             </div>
                                             <div class="card-text" style="font-size: 15px;color: #6c757d;">
                                                 <div class="input-group mb-3 mt-1">
                                                     <select name="vacationType" id="vacationType" class="form-select">
                                                         <option></option>
                                                         <optgroup label="Congé maternité">
-                                                            <option value="G1">Grossesse simple (6s - T - 10S)</option>
-                                                            <option value="G1E">Grossesse simple / 2 enfants à charge ou
-                                                                2 enfants nés viables (8s - T - 18S)</option>
-                                                            <option value="G2">Grossesse gémélaire (12s - T - 22S)
+                                                            <option value="G1">Grossesse simple : 6s - T - 10S
                                                             </option>
-                                                            <option value="G3">Grossesse triple et plus (24s - T - 22S)
+                                                            <option value="G1E">
+                                                                Grossesse simple / 2 enfants à charge ou 2 enfants nés
+                                                                viables : 8s - T - 18S
+                                                            </option>
+                                                            <option value="G2">
+                                                                Grossesse gémélaire : 12s - T - 22S
+                                                            </option>
+                                                            <option value="G3">
+                                                                Grossesse triple et plus : 24s - T - 22S
                                                             </option>
                                                         </optgroup>
                                                         <optgroup label="Dépistage T21">
-                                                            <option value="T21COMBI">T21 : dépistage combiné (11 → 13+6
-                                                                SA)</option>
-                                                            <option value="T212TRI">T21 : dépistage 2e trimestre (14 →
-                                                                17+6 SA)</option>
-                                                        </optgroup>
-                                                        <optgroup label="IVG">
-                                                            <option value="IVGMed">Période légale IVG médicamenteuse (4
-                                                                → 9 SA)</option>
-                                                            <option value="IVGChir">Période légale IVG chirurgicale (4 →
-                                                                16 SA)</option>
+                                                            <option value="T21COMBI">
+                                                                T21 : dépistage combiné : 11 → 13+6 SA
+                                                            </option>
+                                                            <option value="T212TRI">
+                                                                T21 : dépistage 2e trimestre : 14 → 17+6 SA
+                                                            </option>
                                                         </optgroup>
                                                     </select>
                                                 </div>
@@ -231,7 +549,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> #}
+                                {# Sauvegarde Calendrier Spécifique #}
+
 
                                 <div class="col-12 mt-2 aos-init aos-animate" data-aos="fade-up">
                                     <div class="card">
@@ -253,166 +573,80 @@
                                     </div>
                                 </div>
 
+                                <div class="row mt-3">
+                                    <div class="col-lg-6">
+                                        <ul>
+                                            <li>
+                                                {# <a href="#" id="personnalCalendar">
+                                                    <strong>Télécharger le calendrier personnalisé</strong>
+                                                </a> #}
+                                                <a href="#" onclick="printCalendar(event)">
+                                                    <strong>Télécharger votre calendrier personnalisé</strong>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a target="_blank"
+                                                    href="https://rpvo-v2.mlc-site.fr/wp-content/uploads/2024/04/Pour-un-meilleur-suivi-grossesse-version-memo_VF170723.pdf"
+                                                    id="memo">
+                                                    <strong>Télécharger la fiche mémo</strong>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <h6>Pour faire votre déclaration de grossesse :</h6>
+                                        <div class="mt-4">
+
+                                            <a target="_blank" class="btn buy-btn px-4"
+                                                href="https://www.ameli.fr/val-d-oise/assure/droits-demarches/famille/maternite-paternite-adoption/grossesse">
+                                                Ameli
+                                            </a>
+
+
+                                            <a target="_blank" class="btn buy-btn px-4"
+                                                href="https://www.caf.fr/allocataires/aides-et-demarches/ma-situation/vie-personnelle/j-attends-un-enfant">
+                                                CAF
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 mt-3 mt-lg-0">
+                                        <a href="https://rpvo-v2.mlc-site.fr/nutrition-et-hygiene-de-vie/"
+                                            target="_blank">
+                                            <img src="{{asset('assets/img/hygiène de vie.jpeg')}}" alt=""
+                                                class="w-100 h-75 object-fit-fill">
+                                        </a>
+                                    </div>
+                                </div>
+
                                 <div class="col-12 d-flex align-items-center justify-content-around">
                                     <a href="" class="btn mt-3" style="background-color:#f2f2f2;">
                                         <i class="bi bi-arrow-clockwise"></i>
                                         Réinitialiser
                                     </a>
 
-                                    <a href="" class="btn mt-3" style="background-color:#f2f2f2;" id="print"
-                                        onclick="printCalendar(event)">
+                                    {# <a href="" class="btn mt-3" style="background-color:#f2f2f2;" id="print"
+                                        onclick="printCalendar()">
                                         <i class="bi bi-printer"></i>
                                         Imprimer
-                                    </a>
+                                    </a> #}
                                 </div>
                             </div>
                             <div class="form-text" id="basic-addon4">
                                 <ul style="list-style-type: none;">
                                     <li>
-                                        <i>*Pour rappel, cette Roulette obstétricale est proposée à titre informatif et
-                                            peut comporter des inexactitudes. Si vous avez le
-                                            moindre doute ou question vous devez consulter votre sage-femme.</i>
+                                        <i>*Pour rappel, cet outil est proposé à titre informatif et peut comporter des
+                                            inexactitudes. Si vous avez le moindre doute
+                                            ou question vous devez consulter votre professionnel de santé.
+                                        </i>
                                     </li>
                                 </ul>
                             </div>
                     </form>
                 </div>
-
             </div>
-
-
-
         </div>
     </section>
 
-    <section id="outils-guide" class="faq mt-4">
-        <div class="container aos-init aos-animate" data-aos="fade-up">
 
-            <div class="row gy-4">
-
-                <div class="col-lg-4">
-                    <div class="content px-xl-5">
-                        <h3>Le Guide <strong>Pratique</strong></h3>
-                        <p>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-lg-8">
-
-                    <div class="accordion accordion-flush aos-init aos-animate" id="faqlist" data-aos="fade-up"
-                        data-aos-delay="100">
-                        <div class="accordion-item">
-                            <h3 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq-content-1">
-                                    <span class="num">1.</span>
-                                    Le Terme ?
-                                </button>
-                            </h3>
-                            <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                <div class="accordion-body">
-                                    <strong><i>« Être à terme »</i></strong>
-                                    <p>
-                                        Une femme enceinte est considérée « à terme » lorsqu'elle atteint sa 37ème SA,
-                                        ce
-                                        qui correspond au début du 9ème mois.
-                                    </p>
-
-                                    <strong><i>« Dépasser son terme »</i></strong>
-                                    <p>
-                                        On dira qu'une femme dépasse son terme lorsqu'elle n'a toujours pas accouché à
-                                        la fin de la 41ème SA, soit à la fin de son 9ème mois de grossesse.
-                                    </p>
-                                </div>
-                            </div>
-                        </div><!-- # Faq item-->
-
-                        <div class="accordion-item">
-                            <h3 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq-content-2">
-                                    <span class="num">2.</span>
-                                    Terme SA ?
-                                </button>
-                            </h3>
-                            <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                <div class="accordion-body">
-                                    Le terme "SA" dans le contexte de la grossesse signifie "semaines d'aménorrhée". Les
-                                    semaines d'aménorrhée représentent le nombre de semaines qui se sont écoulées depuis
-                                    le premier jour des dernières règles de la femme enceinte. C'est une
-                                    mesure couramment utilisée pour suivre la progression de la grossesse.
-                                    <br>
-                                    <i>Par exemple, 30 semaines SA signifieraient que la femme est enceinte depuis 30
-                                        semaines</i>
-                                </div>
-                            </div>
-                        </div><!-- # Faq item-->
-
-                        <div class="accordion-item">
-                            <h3 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq-content-3">
-                                    <span class="num">3.</span>
-                                    Comment calculer le terme de grossesse ?
-                                </button>
-                            </h3>
-                            <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                <div class="accordion-body">
-                                    <p>
-                                        La règle de Naegele est une méthode utilisée pour estimer la date probable de
-                                        l'accouchement en ajoutant 280 jours (ou 40 semaines) au premier jour de la
-                                        dernière
-                                        menstruation de la femme enceinte. Elle est basée sur l'idée que la
-                                        grossesse dure généralement 280 jours à partir de ce point de référence.
-                                    </p>
-
-                                    <p>
-                                        Autrement dit, pour calculer le terme de grossesse selon la règle de Naegele, on
-                                        prend la date du premier jour des
-                                        dernières règles, on ajoute 280 jours, et on obtient une estimation de la date
-                                        probable d'accouchement.
-                                    </p>
-                                </div>
-                            </div>
-                        </div><!-- # Faq item-->
-
-                        <div class="accordion-item">
-                            <h3 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#faq-content-4">
-                                    <span class="num">4.</span>
-                                    Les consultations
-                                </button>
-                            </h3>
-                            <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                <div class="accordion-body">
-                                    <p>
-                                        Il est généralement recommandé que les consultations prénatales commencent au
-                                        plus tôt au cours du premier trimestre de
-                                        la grossesse. Idéalement, la première consultation prénatale devrait avoir lieu
-                                        dans les 8 à 12 premières semaines de
-                                        grossesse. Cela permet aux professionnels de la santé de surveiller la santé de
-                                        la mère et du fœtus dès le début de la
-                                        grossesse, de fournir des conseils appropriés et de détecter rapidement tout
-                                        problème potentiel.
-                                    </p>
-
-                                    <p>
-                                        En outre, après la première consultation prénatale, il est recommandé que les
-                                        consultations de suivi se poursuivent à intervalles
-                                        réguliers, souvent mensuels au cours du deuxième trimestre de la grossesse.
-                                    </p>
-                                </div>
-                            </div>
-                        </div><!-- # Faq item-->
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
 
 </main><!-- End #main -->
 {% endblock %}
@@ -428,23 +662,19 @@
             visibility: hidden;
         }
 
-        #outils,
-        #outils * {
+        #toprint,
+        #toprint * {
             visibility: visible;
-            width: 100%;
-            font-size: 12px;
+            font-size: 11px;
         }
 
-        tr {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-        }
-
-        #outils {
+        #toprint {
+            size: A4;
+            padding: 5px;
             position: absolute;
             left: 0;
             top: 0;
+            padding-bottom: 0;
         }
     }
 </style>
