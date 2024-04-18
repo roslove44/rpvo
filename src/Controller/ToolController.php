@@ -16,7 +16,7 @@ class ToolController extends AbstractController
     #[Route('/', name: 'app_tool')]
     public function index(): Response
     {
-        return $this->redirect('https://rpvo-v2.mlc-site.fr/outils-pratiques/');
+        return $this->redirect('https://rpvo.org/outils-pratiques/');
     }
 
     #[Route('calculateur-age-reel-age-corrige-pour-prematures', name: 'app_tool_calculatorForPremature')]
